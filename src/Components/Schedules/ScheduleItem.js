@@ -30,7 +30,7 @@ export default function ScheduleItem(props) {
                             size="small"
                             variant="outlined"
                             color="error"
-                            style={{ marginLeft: '3em' }}
+                            style={{ marginLeft: '1em' }}
                         >
                             Delete
                         </Button>

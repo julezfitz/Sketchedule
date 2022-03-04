@@ -8,10 +8,9 @@ export const StyledHeading = styled.div`
 	letter-spacing: -2px;
 	font-weight: lighter;
 	width: 100%;
+	margin-left: 32%;
 	display: flex;
-	color: ${({ color }) => {
-		return color === "light" ? "white" : "black";
-	}};
+	color: purple;
 
 	h2 {
 		${({style}) => style && style};
