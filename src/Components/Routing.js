@@ -15,7 +15,7 @@ export default function Routing({ location }) {
         },
         {
             headingTitle: "My Schedules",
-            path: "/offers",
+            path: "/schedules",
         },
     ];
 
