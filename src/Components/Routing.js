@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Heading from "./Heading/Heading";
 import { Divider } from "@mui/material";
-
+import ScheduleList from "./Schedules/ScheduleList";
 
 export default function Routing({ location }) {
 
@@ -49,6 +49,9 @@ export default function Routing({ location }) {
             <Routes location={location} key={location.pathname}>
                 <Route
                     path="/"
+                    element={
+                        <ScheduleList />
+                    }
                 />
             </Routes>
         </>
