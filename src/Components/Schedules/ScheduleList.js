@@ -10,8 +10,9 @@ export default function ScheduleList() {
 
     return (
         <Box sx={{ flexGrow: 1, minHeight: "100vh" }}>
+            <Typography>My Sketchedules</Typography>
             <Grid container spacing={2} columns={16}>
-                <Grid item xs={8}
+                <Grid item xs={16}
                     sx={{
                         transition: "300ms ease",
                         "&:hover > .MuiGrid-item": {
@@ -28,21 +29,25 @@ export default function ScheduleList() {
                     <>
                         <Grid container direction="row">
                             <Grid item xs={13.7}>
-                                <Typography variant='h4' component='h2'>
-                                    Your schedule items
-                                    <ScheduleItem
-                                        key={Math.random().toString(36).substr(2, 9)}
-                                    />
-                                </Typography>
+                                <ScheduleItem
+                                    key={Math.random().toString(36).substr(2, 9)}
+                                    name="Trip to Grocery Store"
+                                />
                             </Grid>
-                            <Grid item xs={2}>
-                                This is an item
+                            <Grid item xs={13.7}>
+                                <ScheduleItem
+                                    key={Math.random().toString(36).substr(2, 9)}
+                                    name="Saturday"
+                                />
+                            </Grid>
+                            <Grid item xs={13.7}>
+                                <ScheduleItem
+                                    key={Math.random().toString(36).substr(2, 9)}
+                                    name="School Day"
+                                />
                             </Grid>
                         </Grid>
                     </>
-                </Grid>
-                <Grid item xs={8}>
-                    Hello there!
                 </Grid>
             </Grid>
         </Box>
