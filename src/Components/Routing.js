@@ -10,7 +10,7 @@ export default function Routing({ location }) {
 
     const pageInfo = [
         {
-            headingTitle: "Home",
+            headingTitle: "Sketchedule",
             path: "/",
         },
         {
