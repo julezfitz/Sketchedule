@@ -10,7 +10,7 @@ export default function App() {
 	const location = useLocation();
 
 	return (
-		<Container maxWidth='xl' sx={{ height: "100%" }}>
+		<Container maxWidth='auto' sx={{ height: "100%" }}>
 			<Routing
 				location={location}
 			/>
