@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import ScheduleItem from "./ScheduleItem";
+import Paper from '@mui/material/Paper';
 
 export default function ScheduleList() {
 
@@ -27,26 +28,46 @@ export default function ScheduleList() {
                         },
                     }}>
                     <>
-                        <Grid container direction="row">
-                            <Grid item xs={13.7}>
-                                <ScheduleItem
-                                    key={Math.random().toString(36).substr(2, 9)}
-                                    name="Trip to Grocery Store"
-                                />
+                        <Paper style={{ maxHeight: 600, overflow: 'auto' }}>
+                            <Grid container direction="row">
+                                <Grid item xs={13.7}>
+                                    <ScheduleItem
+                                        key={Math.random().toString(36).substr(2, 9)}
+                                        name="Trip to Grocery Store"
+                                    />
+                                </Grid>
+                                <Grid item xs={13.7}>
+                                    <ScheduleItem
+                                        key={Math.random().toString(36).substr(2, 9)}
+                                        name="Saturday"
+                                    />
+                                </Grid>
+                                <Grid item xs={13.7}>
+                                    <ScheduleItem
+                                        key={Math.random().toString(36).substr(2, 9)}
+                                        name="School Day"
+                                    />
+                                </Grid>
+                                <Grid item xs={13.7}>
+                                    <ScheduleItem
+                                        key={Math.random().toString(36).substr(2, 9)}
+                                        name="Trip To The Grocery Store"
+                                    />
+                                </Grid>
+                                <Grid item xs={13.7}>
+                                    <ScheduleItem
+                                        key={Math.random().toString(36).substr(2, 9)}
+                                        name="Visit to Grandpa's"
+                                    />
+                                </Grid>
+                                <Grid item xs={13.7}>
+                                    <ScheduleItem
+                                        key={Math.random().toString(36).substr(2, 9)}
+                                        name="Visit to the Doctor"
+                                    />
+                                </Grid>
                             </Grid>
-                            <Grid item xs={13.7}>
-                                <ScheduleItem
-                                    key={Math.random().toString(36).substr(2, 9)}
-                                    name="Saturday"
-                                />
-                            </Grid>
-                            <Grid item xs={13.7}>
-                                <ScheduleItem
-                                    key={Math.random().toString(36).substr(2, 9)}
-                                    name="School Day"
-                                />
-                            </Grid>
-                        </Grid>
+                        </Paper>
                     </>
                 </Grid>
             </Grid>

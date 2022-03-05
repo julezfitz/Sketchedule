@@ -2,14 +2,17 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import { Button } from "@mui/material";
+// import { Button } from "@mui/material";
+import { IconButton } from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function ScheduleItem(props) {
     return (
         <Paper variant="outlined" sx={{ p: 2, m: 1, flexGrow: 1 }} style={{ cursor: "pointer" }}>
-            <Grid container spacing={2} >
-                <Grid item xs={12} sm container>
-                    <Grid item xs container direction="column" spacing={2}>
+            <Grid container spacing={1} >
+                <Grid item xs={15} sm container>
+                    <Grid item xs container direction="column" spacing={8}>
                         <Grid item xs>
                             <Typography gutterBottom variant="subtitle1" component="div">
                                 {props.name}
@@ -18,22 +21,21 @@ export default function ScheduleItem(props) {
                     </Grid>
 
                     <Grid item>
-                        <Button
-                            size="small"
-                            variant="outlined"
-                            color="warning"
-                            style={{ marginLeft: '3em' }}
+                        <IconButton
+                            size="large"
+                            color="inherit"
+                            style={{ marginLeft: 2 }}
                         >
-                            Edit
-                        </Button>
-                        <Button
-                            size="small"
-                            variant="outlined"
-                            color="error"
-                            style={{ marginLeft: '3em' }}
+                            <EditIcon />
+                        </IconButton>
+
+                        <IconButton
+                            size="large"
+                            color="inherit"
+                            style={{ marginLeft: 1 }}
                         >
-                            Delete
-                        </Button>
+                            <DeleteIcon />
+                        </IconButton>
                     </Grid>
 
                 </Grid>
