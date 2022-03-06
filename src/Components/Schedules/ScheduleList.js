@@ -10,7 +10,7 @@ export default function ScheduleList() {
     const [schedules, setSchedules] = useState([]);
 
     return (
-        <Box sx={{ flexGrow: 1, minHeight: "100vh" }}>
+        <Box sx={{ flexGrow: 1, minHeight: "60vh" }}>
             <Typography>My Sketchedules</Typography>
             <Grid container spacing={2} columns={16}>
                 <Grid item xs={16}
@@ -28,39 +28,39 @@ export default function ScheduleList() {
                         },
                     }}>
                     <>
-                        <Paper style={{ maxHeight: 600, overflow: 'auto' }}>
+                        <Paper style={{ maxHeight: 450, overflow: 'auto' }}>
                             <Grid container direction="row">
-                                <Grid item xs={13.7}>
+                                <Grid item xs={15}>
                                     <ScheduleItem
                                         key={Math.random().toString(36).substr(2, 9)}
                                         name="Trip to Grocery Store"
                                     />
                                 </Grid>
-                                <Grid item xs={13.7}>
+                                <Grid item xs={15}>
                                     <ScheduleItem
                                         key={Math.random().toString(36).substr(2, 9)}
                                         name="Saturday"
                                     />
                                 </Grid>
-                                <Grid item xs={13.7}>
+                                <Grid item xs={15}>
                                     <ScheduleItem
                                         key={Math.random().toString(36).substr(2, 9)}
                                         name="School Day"
                                     />
                                 </Grid>
-                                <Grid item xs={13.7}>
+                                <Grid item xs={15}>
                                     <ScheduleItem
                                         key={Math.random().toString(36).substr(2, 9)}
                                         name="Trip To The Grocery Store"
                                     />
                                 </Grid>
-                                <Grid item xs={13.7}>
+                                <Grid item xs={15}>
                                     <ScheduleItem
                                         key={Math.random().toString(36).substr(2, 9)}
                                         name="Visit to Grandpa's"
                                     />
                                 </Grid>
-                                <Grid item xs={13.7}>
+                                <Grid item xs={15}>
                                     <ScheduleItem
                                         key={Math.random().toString(36).substr(2, 9)}
                                         name="Visit to the Doctor"

@@ -11,7 +11,7 @@ export default function ScheduleItem(props) {
     return (
         <Paper variant="outlined" sx={{ p: 2, m: 1, flexGrow: 1 }} style={{ cursor: "pointer" }}>
             <Grid container spacing={1} >
-                <Grid item xs={15} sm container>
+                <Grid item xs={16} sm container>
                     <Grid item xs container direction="column" spacing={8}>
                         <Grid item xs>
                             <Typography gutterBottom variant="subtitle1" component="div">
@@ -24,7 +24,7 @@ export default function ScheduleItem(props) {
                         <IconButton
                             size="large"
                             color="inherit"
-                            style={{ marginLeft: 2 }}
+                            style={{ marginLeft: 2.5 }}
                         >
                             <EditIcon />
                         </IconButton>
@@ -32,7 +32,7 @@ export default function ScheduleItem(props) {
                         <IconButton
                             size="large"
                             color="inherit"
-                            style={{ marginLeft: 1 }}
+                            style={{ marginLeft: 0 }}
                         >
                             <DeleteIcon />
                         </IconButton>

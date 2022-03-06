@@ -17,6 +17,10 @@ export default function Routing({ location }) {
             headingTitle: "My Schedules",
             path: "/schedules",
         },
+        {
+            headingTitle: "New Schedule",
+            path: "/new",
+        },
     ];
 
     useEffect(() => {
@@ -36,14 +40,12 @@ export default function Routing({ location }) {
                 style={{
                     marginBottom: 0,
                     marginTop: "2rem",
-
-                    overflow: "hidden",
                 }}
             >
                 {headingTitle}
             </Heading>
             <Divider
-                sx={{ marginBottom: "5rem", marginTop: "1rem" }}
+                sx={{ marginBottom: "2rem", marginTop: "1rem" }}
                 color="white"
             />
             <Routes location={location} key={location.pathname}>
