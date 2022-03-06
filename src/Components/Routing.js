@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Heading from "./Heading/Heading";
 import { Divider } from "@mui/material";
 import ScheduleList from "./Schedules/ScheduleList";
+import EditSchedule from "./Schedules/EditSchedule";
+import NewSchedule from "./Schedules/NewSchedule";
 
 export default function Routing({ location }) {
 
@@ -16,6 +18,14 @@ export default function Routing({ location }) {
         {
             headingTitle: "My Schedules",
             path: "/schedules",
+        },
+        {
+            headingTitle: "Sketchedule",
+            path: "/edit",
+        },
+        {
+            headingTitle: "Sketchedule",
+            path: "/new",
         },
     ];
 
@@ -36,17 +46,27 @@ export default function Routing({ location }) {
                 style={{
                     marginBottom: 0,
                     marginTop: "2rem",
-
-                    overflow: "hidden",
                 }}
             >
                 {headingTitle}
             </Heading>
             <Divider
-                sx={{ marginBottom: "5rem", marginTop: "1rem" }}
+                sx={{ marginBottom: "2rem", marginTop: "1rem" }}
                 color="white"
             />
             <Routes location={location} key={location.pathname}>
+                <Route
+                    path="/edit"
+                    element={
+                        <EditSchedule />
+                    }
+                />
+                <Route
+                    path="/new"
+                    element={
+                        <NewSchedule />
+                    }
+                />
                 <Route
                     path="/"
                     element={
