@@ -5,17 +5,20 @@ import Typography from "@mui/material/Typography";
 import Paper from '@mui/material/Paper';
 import { IconButton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
-export default function NewSchedule() {
+export default function EditSchedule() {
 
     return (
         <Box sx={{ flexGrow: 1, minHeight: "60vh" }}>
-            <AddPhotoAlternateIcon
-                sx={{ fontSize: 120 }}
-                color="blue"
-                style={{ marginLeft: '35%' }}
-            />
+            <Typography>New Sketchedule - July 10, 2022
+                <IconButton
+                    size="large"
+                    color="inherit"
+                    style={{ marginLeft: 2.5 }}
+                >
+                    <EditIcon />
+                </IconButton>
+            </Typography>
             <Grid container spacing={2} columns={16}>
                 <Grid item xs={16}
                     sx={{
