@@ -53,7 +53,8 @@ export default function NewSchedule() {
                         </Grid>
                     </CardContent>
                 </Card>
-                <Grid container marginTop={1} spacing={2} columns={16}>
+                <Grid container marginTop={1} spacing={2} direction='column' alignItems="center"
+                justifyContent="center">
                     <Grid item xs={16}
                         sx={{
                             transition: "300ms ease",
@@ -71,7 +72,7 @@ export default function NewSchedule() {
                         <>
                             <Paper
                                 variant="outlined"
-                                style={{ maxHeight: 450, overflow: 'auto' }}>
+                                style={{ width: '15em', maxHeight: 450, overflow: 'auto' }}>
 
                                 <Grid container direction="row">
 
@@ -84,7 +85,7 @@ export default function NewSchedule() {
                                             <ListItem
                                                 divider='true'
                                             >
-                                                <Grid container direction="row" spacing={12}>
+                                                <Grid container direction="row" spacing={13}>
                                                     <Grid item>SketchIt</Grid>
                                                     <Grid item><GestureIcon></GestureIcon></Grid>
                                                 </Grid>
@@ -93,7 +94,7 @@ export default function NewSchedule() {
                                                 divider='true'
                                                 marginTop='2em'
                                             >
-                                                <Grid container direction="row" spacing={9}>
+                                                <Grid container direction="row" spacing={10}>
                                                     <Grid item>Take Photo</Grid>
                                                     <Grid item><CameraAltIcon></CameraAltIcon></Grid>
                                                 </Grid>
@@ -104,14 +105,14 @@ export default function NewSchedule() {
                                                 marginTop='2'
                                                 divider='true'
                                             >
-                                                <Grid container direction="row" spacing={9}>
+                                                <Grid container direction="row" spacing={8.5}>
                                                     <Grid item>Search Icons</Grid>
                                                     <Grid item><SearchIcon></SearchIcon></Grid>
                                                 </Grid>
                                             </ListItem>
                                             <ListItem
                                             >
-                                                <Grid container direction="row" spacing={9}>
+                                                <Grid container direction="row" spacing={8}>
                                                     <Grid item>Photo Library</Grid>
                                                     <Grid item><LibraryAddIcon></LibraryAddIcon></Grid>
                                                 </Grid>
