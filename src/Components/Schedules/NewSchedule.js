@@ -85,18 +85,18 @@ export default function NewSchedule() {
                                             <ListItem
                                                 divider='true'
                                             >
-                                                <Grid container direction="row" spacing={13}>
-                                                    <Grid item>SketchIt</Grid>
-                                                    <Grid item><GestureIcon></GestureIcon></Grid>
+                                                <Grid container direction="row" spacing={9}>
+                                                    <Grid item xs={8}>SketchIt</Grid>
+                                                    <Grid item xs={1}><GestureIcon></GestureIcon></Grid>
                                                 </Grid>
                                             </ListItem>
                                             <ListItem
                                                 divider='true'
                                                 marginTop='2em'
                                             >
-                                                <Grid container direction="row" spacing={10}>
-                                                    <Grid item>Take Photo</Grid>
-                                                    <Grid item><CameraAltIcon></CameraAltIcon></Grid>
+                                                <Grid container direction="row" spacing={9}>
+                                                    <Grid item xs={8}>Take Photo</Grid>
+                                                    <Grid item xs={1}><CameraAltIcon></CameraAltIcon></Grid>
                                                 </Grid>
 
 
@@ -105,16 +105,16 @@ export default function NewSchedule() {
                                                 marginTop='2'
                                                 divider='true'
                                             >
-                                                <Grid container direction="row" spacing={8.5}>
-                                                    <Grid item>Search Icons</Grid>
-                                                    <Grid item><SearchIcon></SearchIcon></Grid>
+                                                <Grid container direction="row" spacing={9}>
+                                                    <Grid item xs={8}>Search Icons</Grid>
+                                                    <Grid item xs={1}><SearchIcon></SearchIcon></Grid>
                                                 </Grid>
                                             </ListItem>
                                             <ListItem
                                             >
-                                                <Grid container direction="row" spacing={8}>
-                                                    <Grid item>Photo Library</Grid>
-                                                    <Grid item><LibraryAddIcon></LibraryAddIcon></Grid>
+                                                <Grid container direction="row" spacing={9}>
+                                                    <Grid item xs={8}>Photo Library</Grid>
+                                                    <Grid item xs={1}><LibraryAddIcon></LibraryAddIcon></Grid>
                                                 </Grid>
                                             </ListItem>
                                         </List>
