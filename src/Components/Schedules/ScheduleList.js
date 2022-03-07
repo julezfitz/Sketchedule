@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Grid, Typography, Paper } from "@mui/material/Box";
+import { Box, Grid, Typography } from "@mui/material";
 import ScheduleItem from "./ScheduleItem";
 
 export default function ScheduleList() {
@@ -25,7 +25,6 @@ export default function ScheduleList() {
                         },
                     }}>
                     <>
-                        <Paper style={{ maxHeight: 450, overflow: 'auto' }}>
                             <Grid container direction="row">
                                 <Grid item xs={15}>
                                     <ScheduleItem
@@ -64,7 +63,6 @@ export default function ScheduleList() {
                                     />
                                 </Grid>
                             </Grid>
-                        </Paper>
                     </>
                 </Grid>
             </Grid>
