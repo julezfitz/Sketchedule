@@ -1,11 +1,6 @@
 import React from "react";
 import { Paper, Grid, Box, Button, List, ListItem, InputLabel, Input, Card, CardContent, FormControl } from '@mui/material';
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-import EditIcon from "@mui/icons-material/Edit";
-import CameraAltIcon from '@mui/icons-material/CameraAlt';
-import SearchIcon from '@mui/icons-material/Search';
-import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
-import GestureIcon from '@mui/icons-material/Gesture';
+import { Gesture, LibraryAdd, Search, CameraAlt, AddPhotoAlternate, Edit } from '@mui/icons-material';
 
 export default function NewSchedule() {
 
@@ -35,12 +30,12 @@ export default function NewSchedule() {
                             alignItems="center"
                             justifyContent="center"
                         >
-                            <AddPhotoAlternateIcon
+                            <AddPhotoAlternate
                                 sx={{ fontSize: 120, marginLeft: 2 }}
                                 color="info"
                             />
                             <FormControl>
-                                <InputLabel htmlFor="item-label">New Item Label  <EditIcon
+                                <InputLabel htmlFor="item-label">New Item Label  <Edit
                                     fontSize="inherit"
                                     color="inherit"
                                 /></InputLabel>
@@ -67,7 +62,7 @@ export default function NewSchedule() {
                                             >
                                                 <Grid container direction="row" spacing={9}>
                                                     <Grid item xs={8}>SketchIt</Grid>
-                                                    <Grid item xs={1}><GestureIcon></GestureIcon></Grid>
+                                                    <Grid item xs={1}><Gesture></Gesture></Grid>
                                                 </Grid>
                                             </ListItem>
                                             <ListItem
@@ -75,7 +70,7 @@ export default function NewSchedule() {
                                             >
                                                 <Grid container direction="row" spacing={9}>
                                                     <Grid item xs={8}>Take Photo</Grid>
-                                                    <Grid item xs={1}><CameraAltIcon></CameraAltIcon></Grid>
+                                                    <Grid item xs={1}><CameraAlt></CameraAlt></Grid>
                                                 </Grid>
 
 
@@ -86,14 +81,14 @@ export default function NewSchedule() {
                                             >
                                                 <Grid container direction="row" spacing={9}>
                                                     <Grid item xs={8}>Search Icons</Grid>
-                                                    <Grid item xs={1}><SearchIcon></SearchIcon></Grid>
+                                                    <Grid item xs={1}><Search></Search></Grid>
                                                 </Grid>
                                             </ListItem>
                                             <ListItem
                                             >
                                                 <Grid container direction="row" spacing={9}>
                                                     <Grid item xs={8}>Photo Library</Grid>
-                                                    <Grid item xs={1}><LibraryAddIcon></LibraryAddIcon></Grid>
+                                                    <Grid item xs={1}><LibraryAdd></LibraryAdd></Grid>
                                                 </Grid>
                                             </ListItem>
                                         </List>
