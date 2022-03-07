@@ -21,27 +21,7 @@ export default function EditSchedule() {
           <EditIcon />
         </IconButton>
       </Typography>
-      {/* <Grid container spacing={2} columns={16}>
-        <Grid
-          item
-          xs={16}
-          sx={{
-            transition: '300ms ease',
-            '&:hover > .MuiGrid-item': {
-              opacity: 0.5,
-            },
-
-            '.MuiGrid-item:hover': {
-              opacity: 1,
-            },
-            '.MuiGrid-item:hover .MuiTypography-root': {
-              color: 'grey !important',
-            },
-          }}
-        > */}
-      <ImageList rowHeight={134} cols={2} gap={8} sx={{ width: '100%', height: 450 }}>
-
-        {/* <Grid container direction="row" rows={2}> */}
+      <ImageList rowHeight={100} cols={2} gap={8} sx={{ height: 450 }}>
         <ImageListItem key={Math.random().toString(36).substr(2, 9)}>
           <Card
             sx={{ paddingLeft: '20%' }}
@@ -57,9 +37,7 @@ export default function EditSchedule() {
           </Card>
         </ImageListItem>
 
-        <ImageListItem
-          key={Math.random().toString(36).substr(2, 9)}
-        >
+        <ImageListItem key={Math.random().toString(36).substr(2, 9)}>
           <img
             src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
             alt="Clothing"
