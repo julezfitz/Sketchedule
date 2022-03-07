@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import ScheduleItem from './ScheduleItem';
 
 export default function ScheduleList() {
-  const [schedules, setSchedules] = useState([]);
+//   const [schedules, setSchedules] = useState([]);
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh' }}>

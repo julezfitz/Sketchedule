@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Divider } from '@mui/material';
-import { useLocation } from 'react-router';
 import Heading from './Heading/Heading';
 import ScheduleList from './Schedules/ScheduleList';
 import EditSchedule from './Schedules/EditSchedule';
@@ -48,6 +47,7 @@ export default function Routing() {
           marginBottom: 0,
           marginTop: '2rem',
         }}
+        settings={pageInfo}
       >
         {headingTitle}
       </Heading>
