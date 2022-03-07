@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Divider } from '@mui/material';
+import { useLocation } from 'react-router';
 import Heading from './Heading/Heading';
 import ScheduleList from './Schedules/ScheduleList';
 import EditSchedule from './Schedules/EditSchedule';
 import NewSchedule from './Schedules/NewSchedule';
 
-export default function Routing({ location }) {
+export default function Routing() {
   const [headingTitle, setHeadingTitle] = useState(null);
+  const location = useLocation();
 
   const pageInfo = [
     {
