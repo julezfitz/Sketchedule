@@ -49,7 +49,12 @@ function UserMenu({
             className="menuLink"
             style={MENULINKSTYLES}
           >
-            <Typography textAlign="center">{setting.title}</Typography>
+            <Typography
+              textAlign="center"
+              color="black"
+            >
+              {setting.headingTitle}
+            </Typography>
           </Link>
         </MenuItem>
       ))}
