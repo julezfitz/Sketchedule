@@ -72,7 +72,7 @@ export default function NewSchedule() {
                     spacing={2}
                   >
                     <ListItem
-                      divider="true"
+                      divider
                     >
                       <Grid container direction="row" spacing={9}>
                         <Grid item xs={8}>SketchIt</Grid>
@@ -80,7 +80,7 @@ export default function NewSchedule() {
                       </Grid>
                     </ListItem>
                     <ListItem
-                      divider="true"
+                      divider
                     >
                       <Grid container direction="row" spacing={9}>
                         <Grid item xs={8}>Take Photo</Grid>
@@ -89,8 +89,7 @@ export default function NewSchedule() {
 
                     </ListItem>
                     <ListItem
-                      marginTop="2"
-                      divider="true"
+                      divider
                     >
                       <Grid container direction="row" spacing={9}>
                         <Grid item xs={8}>Search Icons</Grid>
@@ -110,7 +109,6 @@ export default function NewSchedule() {
             <Grid
               container
               direction="row"
-              xs={12}
               sx={{ marginTop: 2, marginLeft: 3 }}
             >
               <Grid item xs={6}>
