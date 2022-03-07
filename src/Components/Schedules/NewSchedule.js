@@ -1,11 +1,7 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import { Button } from "@mui/material";
-import Paper from '@mui/material/Paper';
-import EditIcon from "@mui/icons-material/Edit";
-import { List, ListItem, InputLabel, Input, Card, CardContent, FormControl } from '@mui/material';
+import { Paper, Grid, Box, Button, List, ListItem, InputLabel, Input, Card, CardContent, FormControl } from '@mui/material';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import EditIcon from "@mui/icons-material/Edit";
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import SearchIcon from '@mui/icons-material/Search';
 import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
