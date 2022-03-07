@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
+import { Box, Grid, Typography, Paper } from "@mui/material/Box";
 import ScheduleItem from "./ScheduleItem";
-import Paper from '@mui/material/Paper';
 
 export default function ScheduleList() {
 
