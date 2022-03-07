@@ -70,7 +70,6 @@ export default function EditSchedule() {
                                             </CardActionArea>
                                         </Card>
                                     </Grid>
-
                                     <Grid item xs={18}>
                                         <Card
                                             sx={{ width: '10em' }}
@@ -98,14 +97,8 @@ export default function EditSchedule() {
                                             </CardActionArea>
                                         </Card>
                                     </Grid>
-
-
-
-
-                               
                                 </Grid>
                             </Grid>
-
                         </Paper>
                     </>
                 </Grid>
