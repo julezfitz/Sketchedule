@@ -47,76 +47,73 @@ export default function NewSchedule() {
                 <Grid container marginTop={1} spacing={2} direction='column' alignItems="center"
                     justifyContent="center">
                     <Grid item xs={16}>
-                        <>
-                            <Paper
-                                style={{ width: '15em', maxHeight: 450, overflow: 'auto' }}>
+                        <Paper
+                            style={{ width: '15em', maxHeight: 450, overflow: 'auto' }}>
 
-                                <Grid container direction="row">
+                            <Grid container direction="row">
 
-                                    <Grid container direction="column">
-                                        <List
-                                            spacing={2}
+                                <Grid container direction="column">
+                                    <List
+                                        spacing={2}
+                                    >
+                                        <ListItem
+                                            divider='true'
                                         >
-                                            <ListItem
-                                                divider='true'
-                                            >
-                                                <Grid container direction="row" spacing={9}>
-                                                    <Grid item xs={8}>SketchIt</Grid>
-                                                    <Grid item xs={1}><Gesture></Gesture></Grid>
-                                                </Grid>
-                                            </ListItem>
-                                            <ListItem
-                                                divider='true'
-                                            >
-                                                <Grid container direction="row" spacing={9}>
-                                                    <Grid item xs={8}>Take Photo</Grid>
-                                                    <Grid item xs={1}><CameraAlt></CameraAlt></Grid>
-                                                </Grid>
+                                            <Grid container direction="row" spacing={9}>
+                                                <Grid item xs={8}>SketchIt</Grid>
+                                                <Grid item xs={1}><Gesture></Gesture></Grid>
+                                            </Grid>
+                                        </ListItem>
+                                        <ListItem
+                                            divider='true'
+                                        >
+                                            <Grid container direction="row" spacing={9}>
+                                                <Grid item xs={8}>Take Photo</Grid>
+                                                <Grid item xs={1}><CameraAlt></CameraAlt></Grid>
+                                            </Grid>
 
 
-                                            </ListItem>
-                                            <ListItem
-                                                marginTop='2'
-                                                divider='true'
-                                            >
-                                                <Grid container direction="row" spacing={9}>
-                                                    <Grid item xs={8}>Search Icons</Grid>
-                                                    <Grid item xs={1}><Search></Search></Grid>
-                                                </Grid>
-                                            </ListItem>
-                                            <ListItem
-                                            >
-                                                <Grid container direction="row" spacing={9}>
-                                                    <Grid item xs={8}>Photo Library</Grid>
-                                                    <Grid item xs={1}><LibraryAdd></LibraryAdd></Grid>
-                                                </Grid>
-                                            </ListItem>
-                                        </List>
-                                    </Grid>
-                                </Grid>
-                            </Paper>
-                            <Grid container direction="row" xs={12}
-                                sx={{ marginTop: 2, marginLeft: 3 }}
-                            >
-                                <Grid item xs={6}>
-                                    <Button
-                                        size={"small"}
-                                        type='submit'
-                                        color='success'
-                                        variant='contained'
-                                    >Save</Button>
-                                </Grid>
-
-                                <Grid item xs={6}>
-                                    <Button
-                                        size={"small"}
-                                        type='submit'
-                                        color='error'
-                                        variant='contained'
-                                    >Cancel</Button>
+                                        </ListItem>
+                                        <ListItem
+                                            marginTop='2'
+                                            divider='true'
+                                        >
+                                            <Grid container direction="row" spacing={9}>
+                                                <Grid item xs={8}>Search Icons</Grid>
+                                                <Grid item xs={1}><Search></Search></Grid>
+                                            </Grid>
+                                        </ListItem>
+                                        <ListItem>
+                                            <Grid container direction="row" spacing={9}>
+                                                <Grid item xs={8}>Photo Library</Grid>
+                                                <Grid item xs={1}><LibraryAdd></LibraryAdd></Grid>
+                                            </Grid>
+                                        </ListItem>
+                                    </List>
                                 </Grid>
                             </Grid>
-                        </>
+                        </Paper>
+                        <Grid container direction="row" xs={12}
+                            sx={{ marginTop: 2, marginLeft: 3 }}
+                        >
+                            <Grid item xs={6}>
+                                <Button
+                                    size={"small"}
+                                    type='submit'
+                                    color='success'
+                                    variant='contained'
+                                >Save</Button>
+                            </Grid>
+
+                            <Grid item xs={6}>
+                                <Button
+                                    size={"small"}
+                                    type='submit'
+                                    color='error'
+                                    variant='contained'
+                                >Cancel</Button>
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
