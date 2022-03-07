@@ -12,12 +12,8 @@ export default function Routing() {
 
   const pageInfo = [
     {
-      headingTitle: 'Sketchedule',
+      headingTitle: 'My Sketchedules',
       path: '/',
-    },
-    {
-      headingTitle: 'My Schedules',
-      path: '/schedules',
     },
     {
       headingTitle: 'Sketchedule',
