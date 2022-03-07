@@ -3,6 +3,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import {
   IconButton, Card, CardContent, CardActionArea, CardMedia, Typography, Grid, Box, Paper,
 } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
 export default function EditSchedule() {
   return (
@@ -41,6 +42,26 @@ export default function EditSchedule() {
 
               <Grid container direction="column">
 
+                <Grid item xs={18}>
+                  <Card
+                    sx={{ width: '10em' }}
+                    style={{ minHeight: '25vh' }}
+                    variant="outlined"
+                    direction="column"
+                  >
+                    <CardActionArea>
+                      <AddIcon
+                        sx={{ fontSize: 120, color: 'gray' }}
+                      />
+                      <CardContent
+                        sx={{
+                          paddingTop: 1,
+                          paddingBottom: 1,
+                        }}
+                      />
+                    </CardActionArea>
+                  </Card>
+                </Grid>
                 {/* loop here to create cards */}
                 <Grid item xs={18}>
                   <Card
