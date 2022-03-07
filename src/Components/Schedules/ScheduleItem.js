@@ -1,11 +1,6 @@
 import React from "react";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-// import { Button } from "@mui/material";
-import { IconButton } from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
+import { IconButton, Typography, Paper, Grid } from "@mui/material";
+import { Edit, Delete } from "@mui/icons-material";
 
 export default function ScheduleItem(props) {
     return (
@@ -26,7 +21,7 @@ export default function ScheduleItem(props) {
                             color="inherit"
                             style={{ marginLeft: 2.5 }}
                         >
-                            <EditIcon />
+                            <Edit />
                         </IconButton>
 
                         <IconButton
@@ -34,7 +29,7 @@ export default function ScheduleItem(props) {
                             color="inherit"
                             style={{ marginLeft: 0 }}
                         >
-                            <DeleteIcon />
+                            <Delete />
                         </IconButton>
                     </Grid>
 
