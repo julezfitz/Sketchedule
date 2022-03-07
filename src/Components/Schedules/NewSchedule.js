@@ -2,6 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import { Button } from "@mui/material";
 import Paper from '@mui/material/Paper';
 import EditIcon from "@mui/icons-material/Edit";
 import { List, ListItem, InputLabel, Input, Card, CardContent, FormControl } from '@mui/material';
@@ -54,24 +55,10 @@ export default function NewSchedule() {
                     </CardContent>
                 </Card>
                 <Grid container marginTop={1} spacing={2} direction='column' alignItems="center"
-                justifyContent="center">
-                    <Grid item xs={16}
-                        sx={{
-                            transition: "300ms ease",
-                            "&:hover > .MuiGrid-item": {
-                                opacity: 0.5,
-                            },
-
-                            ".MuiGrid-item:hover": {
-                                opacity: 1,
-                            },
-                            ".MuiGrid-item:hover .MuiTypography-root": {
-                                color: "grey !important",
-                            },
-                        }}>
+                    justifyContent="center">
+                    <Grid item xs={16}>
                         <>
                             <Paper
-                                variant="outlined"
                                 style={{ width: '15em', maxHeight: 450, overflow: 'auto' }}>
 
                                 <Grid container direction="row">
@@ -79,8 +66,6 @@ export default function NewSchedule() {
                                     <Grid container direction="column">
                                         <List
                                             spacing={2}
-                                            paddingTop='0.5'
-                                            paddingBottom='0.5'
                                         >
                                             <ListItem
                                                 divider='true'
@@ -92,7 +77,6 @@ export default function NewSchedule() {
                                             </ListItem>
                                             <ListItem
                                                 divider='true'
-                                                marginTop='2em'
                                             >
                                                 <Grid container direction="row" spacing={9}>
                                                     <Grid item xs={8}>Take Photo</Grid>
@@ -120,8 +104,28 @@ export default function NewSchedule() {
                                         </List>
                                     </Grid>
                                 </Grid>
-
                             </Paper>
+                            <Grid container direction="row" xs={12}
+                                sx={{ marginTop: 2, marginLeft: 3 }}
+                            >
+                                <Grid item xs={6}>
+                                    <Button
+                                        size={"small"}
+                                        type='submit'
+                                        color='success'
+                                        variant='contained'
+                                    >Save</Button>
+                                </Grid>
+
+                                <Grid item xs={6}>
+                                    <Button
+                                        size={"small"}
+                                        type='submit'
+                                        color='error'
+                                        variant='contained'
+                                    >Cancel</Button>
+                                </Grid>
+                            </Grid>
                         </>
                     </Grid>
                 </Grid>
