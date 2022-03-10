@@ -36,17 +36,12 @@ export default function Routing() {
   return (
     <>
       <Heading
-        size="medium"
-        className="page-heading"
-        color="light"
         style={{
           marginBottom: 0,
           marginTop: '2rem',
         }}
         settings={pageInfo}
-      >
-        {headingTitle}
-      </Heading>
+      />
       <Divider
         sx={{ marginBottom: '2rem', marginTop: '1rem' }}
         color="white"

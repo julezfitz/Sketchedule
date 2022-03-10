@@ -1,12 +1,14 @@
 import React, { forwardRef, useState } from 'react';
-import { Box, Tooltip, IconButton } from '@mui/material';
+import {
+  Box, Tooltip, Typography, IconButton, Stack,
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import StyledHeading from './styles/styles';
+// import StyledHeading from './styles/styles';
 import UserMenu from './UserMenu';
 
 function Heading(props, ref) {
   const {
-    className, size, color, style, children, settings,
+    settings,
   } = props;
 
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -20,15 +22,12 @@ function Heading(props, ref) {
   };
 
   return (
-    <StyledHeading
-      className={`heading-wrapper ${className || ''}`}
-      size={size}
-      color={color}
-      style={style}
-    >
-      <h2 ref={ref}>{children}</h2>
+    <Stack direction="row" spacing={2} marginTop="10%">
+      <Typography variant="h3" color="purple" marginTop="5%" marginLeft="17%">
+        Sketchedule
+      </Typography>
 
-      <Box sx={{ maxWidth: '150px' }}>
+      <Box sx={{ maxWidth: '150px', marginLeft: '12%' }}>
         <Tooltip title="Menu">
           <IconButton disableRipple onClick={handleOpenUserMenu} sx={{ p: 0 }}>
             <MenuIcon />
@@ -40,7 +39,7 @@ function Heading(props, ref) {
           anchorElUser={anchorElUser}
         />
       </Box>
-    </StyledHeading>
+    </Stack>
   );
 }
 
