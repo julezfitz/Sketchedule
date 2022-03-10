@@ -1,7 +1,7 @@
 import React from 'react';
 import EditIcon from '@mui/icons-material/Edit';
 import {
-  IconButton, Card, CardContent, CardActionArea, CardMedia, Typography, Grid, Box, Paper,
+  IconButton, Card, CardActionArea, Typography, Box,
 } from '@mui/material';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
