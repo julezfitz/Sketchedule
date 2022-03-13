@@ -60,8 +60,7 @@ export default function EditSchedule() {
           />
           <IconButton
             size="medium"
-            color="inherit"
-            style={{ marginLeft: 130, position: 'absolute' }}
+            style={{ color: 'white', marginLeft: 130, position: 'absolute' }}
           >
             <Delete />
           </IconButton>
