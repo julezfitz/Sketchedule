@@ -6,7 +6,7 @@ import {
   Gesture, LibraryAdd, Search, CameraAlt, AddPhotoAlternate, Edit,
 } from '@mui/icons-material';
 
-export default function NewSchedule() {
+export default function NewScheduleItem() {
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh', alignItems: 'center' }}>
       <Grid
