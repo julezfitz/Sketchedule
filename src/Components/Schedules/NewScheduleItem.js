@@ -58,7 +58,7 @@ export default function NewScheduleItem() {
         <Grid
           container
           marginTop={1}
-          spacing={2}
+          spacing={1}
           direction="column"
           alignItems="center"
           justifyContent="center"
@@ -72,10 +72,11 @@ export default function NewScheduleItem() {
 
                 <Grid container direction="column">
                   <List
-                    spacing={2}
+                    spacing={1}
                   >
                     <ListItem
                       divider
+                      sx={{ marginBottom: 1 }}
                     >
                       <Grid container direction="row" spacing={9}>
                         <Grid item xs={8}>SketchIt</Grid>
@@ -84,6 +85,7 @@ export default function NewScheduleItem() {
                     </ListItem>
                     <ListItem
                       divider
+                      sx={{ marginBottom: 1 }}
                     >
                       <Grid container direction="row" spacing={9}>
                         <Grid item xs={8}>Take Photo</Grid>
@@ -93,6 +95,7 @@ export default function NewScheduleItem() {
                     </ListItem>
                     <ListItem
                       divider
+                      sx={{ marginBottom: 1 }}
                     >
                       <Grid container direction="row" spacing={9}>
                         <Grid item xs={8}>Search Icons</Grid>
