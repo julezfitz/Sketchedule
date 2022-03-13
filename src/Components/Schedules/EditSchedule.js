@@ -8,8 +8,11 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import AddIcon from '@mui/icons-material/Add';
 import { NoEncryption } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 export default function EditSchedule() {
+  const navigate = useNavigate();
+
   return (
     <Box>
       <Typography>
@@ -40,6 +43,7 @@ export default function EditSchedule() {
             sx={{ paddingLeft: '20%' }}
             style={{ minHeight: '80%', justifyContent: 'center', display: 'flex' }}
             variant="outlined"
+            onClick={() => navigate('/new')}
           >
             <CardActionArea>
               <AddIcon
