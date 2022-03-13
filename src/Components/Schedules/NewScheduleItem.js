@@ -118,6 +118,7 @@ export default function NewScheduleItem() {
                 <Button
                   size="small"
                   type="submit"
+                  sx={{ fontFamily: 'Verdana' }}
                   color="success"
                   variant="contained"
                 >
@@ -130,6 +131,7 @@ export default function NewScheduleItem() {
                 <Button
                   size="small"
                   type="submit"
+                  sx={{ fontFamily: 'Verdana' }}
                   color="error"
                   variant="contained"
                   onClick={() => navigate('/edit')}
