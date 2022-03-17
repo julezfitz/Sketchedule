@@ -54,12 +54,12 @@ export default function NewScheduleItem() {
           >
             <Grid
               container
-              spacing={1}
+              spacing={0}
               direction="column"
               alignItems="center"
               justifyContent="center"
             >
-              {(result && <img ref={imageRef} style={{ 'object-fit': 'cover' }} width="140px" height="140px" src={result} alt="" />)
+              {(result && <img ref={imageRef} style={{ 'object-fit': 'cover', 'border-radius': '6px' }} width="140px" height="140px" src={result} alt="" />)
               || (
               <AddPhotoAlternate
                 sx={{ fontSize: 120, marginLeft: 2 }}
