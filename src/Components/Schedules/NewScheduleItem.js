@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import {
   Paper, Grid, Box, Button, List, ListItem, InputLabel, Input, Card, CardContent, FormControl,
 } from '@mui/material';
@@ -9,13 +9,13 @@ import { useNavigate } from 'react-router-dom';
 
 export default function NewScheduleItem() {
   const navigate = useNavigate();
-  const [image, setImage] = React.useState('');
-  const imageRef = React.useRef(null);
+  const [image, setImage] = useState('');
+  const imageRef = useRef(null);
 
-  const fileInput = React.useRef();
+  const fileInput = useRef();
 
   function useDisplayImage() {
-    const [result, setResult] = React.useState('');
+    const [result, setResult] = useState('');
 
     function uploader(e) {
       const imageFile = e.target.files[0];
