@@ -59,7 +59,7 @@ export default function NewScheduleItem() {
               alignItems="center"
               justifyContent="center"
             >
-              {(result && <img ref={imageRef} src={result} alt="" />)
+              {(result && <img ref={imageRef} style={{ 'object-fit': 'cover' }} width="140px" height="140px" src={result} alt="" />)
               || (
               <AddPhotoAlternate
                 sx={{ fontSize: 120, marginLeft: 2 }}
