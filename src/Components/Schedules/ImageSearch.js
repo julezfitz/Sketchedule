@@ -1,17 +1,41 @@
 import React from 'react';
 import { createApi } from 'unsplash-js';
-import { Box, Grid, Typography } from '@mui/material';
+import {
+  TextField, Box, Grid, Typography,
+} from '@mui/material';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import SearchIcon from '@mui/icons-material/Search';
 
 export default function ImageSearch() {
-
   const unsplash = createApi({
     applicationId: '{d24RfJCmlQx9cvBRGcGNvhn0PpPAlvyxRe0tNGzYRhU}',
     secret: process.env.UNSPLASH_SECRET,
   });
 
+  const handleSearch = () => {
+    unsplash.search.photos('cats', 1)
+      .then((response) => {
+        console.log(response);
+      });
+  };
+
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh' }}>
-      <Typography>Search</Typography>
+
+      <TextField
+        id="outlined-basic"
+        label="Search"
+        placeholder="ex. Playground"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
+        variant="outlined"
+      />
       <Grid container spacing={2} columns={16}>
         <Grid
           item
@@ -31,9 +55,7 @@ export default function ImageSearch() {
           }}
         >
           <Grid container direction="row">
-            <Grid item xs={15}>
-              Hello
-            </Grid>
+            <Grid item xs={15} />
           </Grid>
         </Grid>
       </Grid>
