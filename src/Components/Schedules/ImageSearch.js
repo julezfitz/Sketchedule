@@ -1,7 +1,14 @@
 import React from 'react';
+import { createApi } from 'unsplash-js';
 import { Box, Grid, Typography } from '@mui/material';
 
 export default function ImageSearch() {
+
+  const unsplash = createApi({
+    applicationId: '{d24RfJCmlQx9cvBRGcGNvhn0PpPAlvyxRe0tNGzYRhU}',
+    secret: process.env.UNSPLASH_SECRET,
+  });
+
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh' }}>
       <Typography>Search</Typography>

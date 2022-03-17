@@ -1,11 +1,11 @@
 // import '././App.css';
 import React from 'react';
+import { createApi } from 'unsplash-js';
 import { Container } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Routing from './Routing';
 import 'typeface-indie-flower';
-import Unsplash from 'unsplash-js';
 
 export default function App() {
   const theme = createTheme({
@@ -15,11 +15,6 @@ export default function App() {
         'cursive',
       ].join(','),
     },
-  });
-
-  const unsplash = new Unsplash({
-    applicationId: '{d24RfJCmlQx9cvBRGcGNvhn0PpPAlvyxRe0tNGzYRhU}',
-    secret: process.env.UNSPLASH_SECRET,
   });
 
   return (
