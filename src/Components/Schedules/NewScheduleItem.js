@@ -110,7 +110,7 @@ export default function NewScheduleItem() {
                         <Grid item xs={1}><Gesture /></Grid>
                       </Grid>
                     </ListItem>
-                    <ListItem
+                    {/* <ListItem
                       divider
                       sx={{ marginBottom: 1 }}
                     >
@@ -119,7 +119,7 @@ export default function NewScheduleItem() {
                         <Grid item xs={1}><CameraAlt /></Grid>
                       </Grid>
 
-                    </ListItem>
+                    </ListItem> */}
                     <ListItem
                       divider
                       sx={{ marginBottom: 1 }}
