@@ -4,6 +4,7 @@ import { Divider } from '@mui/material';
 import Heading from './Heading/Heading';
 import ScheduleList from './Schedules/ScheduleList';
 import EditSchedule from './Schedules/EditSchedule';
+import ImageSearch from './Schedules/ImageSearch';
 import NewScheduleItem from './Schedules/NewScheduleItem';
 
 export default function Routing() {
@@ -22,6 +23,10 @@ export default function Routing() {
     {
       headingTitle: 'New Sketchedule',
       path: '/new',
+    },
+    {
+      headingTitle: 'Search',
+      path: '/search',
     },
   ];
 
@@ -63,6 +68,12 @@ export default function Routing() {
           path="/"
           element={
             <ScheduleList />
+                    }
+        />
+        <Route
+          path="/search"
+          element={
+            <ImageSearch />
                     }
         />
       </Routes>
