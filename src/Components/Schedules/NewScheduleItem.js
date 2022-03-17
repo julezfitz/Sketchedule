@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function NewScheduleItem() {
   const navigate = useNavigate();
+  const fileInput = React.useRef();
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh', alignItems: 'center' }}>
@@ -103,7 +104,12 @@ export default function NewScheduleItem() {
                       </Grid>
                     </ListItem>
                     <ListItem>
-                      <Grid container direction="row" spacing={9}>
+                      <Grid
+                        container
+                        direction="row"
+                        spacing={9}
+                        onClick={() => fileInput.current.children[0].click()}
+                      >
                         <Grid item xs={8}>Photo Library</Grid>
                         <Grid item xs={1}><LibraryAdd /></Grid>
                       </Grid>
@@ -148,6 +154,10 @@ export default function NewScheduleItem() {
         </Grid>
       </Grid>
 
+      {/* Form for uploading images from file */}
+      <form method="post" encType="multipart/form-data">
+        <Input type="file" id="file" ref={fileInput} name="file" style={{ display: 'none' }} />
+      </form>
     </Box>
   );
 }
