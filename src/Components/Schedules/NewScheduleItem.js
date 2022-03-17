@@ -9,7 +9,29 @@ import { useNavigate } from 'react-router-dom';
 
 export default function NewScheduleItem() {
   const navigate = useNavigate();
+  const [image, setImage] = React.useState('');
+  const imageRef = React.useRef(null);
+
   const fileInput = React.useRef();
+
+  function useDisplayImage() {
+    const [result, setResult] = React.useState('');
+
+    function uploader(e) {
+      const imageFile = e.target.files[0];
+
+      const reader = new FileReader();
+      reader.addEventListener('load', (e) => {
+        setResult(e.target.result);
+      });
+
+      reader.readAsDataURL(imageFile);
+    }
+
+    return { result, uploader };
+  }
+
+  const { result, uploader } = useDisplayImage();
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh', alignItems: 'center' }}>
@@ -37,10 +59,14 @@ export default function NewScheduleItem() {
               alignItems="center"
               justifyContent="center"
             >
+              {(result && <img ref={imageRef} src={result} alt="" />)
+              || (
               <AddPhotoAlternate
                 sx={{ fontSize: 120, marginLeft: 2 }}
                 color="info"
               />
+              )}
+
               <FormControl>
                 <InputLabel htmlFor="item-label">
                   New Item Label
@@ -156,7 +182,17 @@ export default function NewScheduleItem() {
 
       {/* Form for uploading images from file */}
       <form method="post" encType="multipart/form-data">
-        <Input type="file" id="file" ref={fileInput} name="file" style={{ display: 'none' }} />
+        <Input
+          type="file"
+          onChange={(e) => {
+            setImage(e.target.files[0]);
+            uploader(e);
+          }}
+          id="file"
+          ref={fileInput}
+          name="file"
+          style={{ display: 'none' }}
+        />
       </form>
     </Box>
   );
