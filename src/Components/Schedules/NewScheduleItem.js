@@ -5,14 +5,17 @@ import {
 import {
   Gesture, LibraryAdd, Search, CameraAlt, AddPhotoAlternate, Edit,
 } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function NewScheduleItem() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [image, setImage] = useState('');
   const imageRef = useRef(null);
 
   const fileInput = useRef();
+
+  console.log(location.state);
 
   function useDisplayImage() {
     const [result, setResult] = useState('');
@@ -30,6 +33,10 @@ export default function NewScheduleItem() {
 
     return { result, uploader };
   }
+
+  const handleSearchLibrary = () => {
+    navigate('/search');
+  };
 
   const { result, uploader } = useDisplayImage();
 
@@ -110,21 +117,16 @@ export default function NewScheduleItem() {
                         <Grid item xs={1}><Gesture /></Grid>
                       </Grid>
                     </ListItem>
-                    {/* <ListItem
-                      divider
-                      sx={{ marginBottom: 1 }}
-                    >
-                      <Grid container direction="row" spacing={9}>
-                        <Grid item xs={8}>Take Photo</Grid>
-                        <Grid item xs={1}><CameraAlt /></Grid>
-                      </Grid>
-
-                    </ListItem> */}
                     <ListItem
                       divider
                       sx={{ marginBottom: 1 }}
                     >
-                      <Grid container direction="row" spacing={9}>
+                      <Grid
+                        container
+                        direction="row"
+                        onClick={() => handleSearchLibrary()}
+                        spacing={9}
+                      >
                         <Grid item xs={8}>Search Icons</Grid>
                         <Grid item xs={1}><Search /></Grid>
                       </Grid>
@@ -134,7 +136,7 @@ export default function NewScheduleItem() {
                         container
                         direction="row"
                         spacing={9}
-                        onClick={() => fileInput.current.children[0].click()}
+                        // onClick={() => fileInput.current.children[0].click()}
                       >
                         <Grid item xs={8}>Photo Library</Grid>
                         <Grid item xs={1}><LibraryAdd /></Grid>
