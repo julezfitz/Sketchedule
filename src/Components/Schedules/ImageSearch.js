@@ -18,6 +18,7 @@ const SearchBox = styled(TextField)(() => ({
   },
 }));
 
+// style confirmation modal
 const style = {
   position: 'absolute',
   top: '50%',
@@ -54,6 +55,13 @@ export default function ImageSearch() {
       });
   };
 
+  const onKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+      e.preventDefault();
+    }
+  };
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -69,6 +77,7 @@ export default function ImageSearch() {
         placeholder="Search"
         value={searchTerm}
         key="searchField"
+        onKeyPress={onKeyPress}
         onChange={(e) => setSearchTerm(e.target.value)}
         variant="outlined"
         fullWidth
