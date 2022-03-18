@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { createApi } from 'unsplash-js';
 import {
-  TextField, Box,
+  TextField, Box, Button,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@material-ui/core/styles';
+import Modal from '@mui/material/Modal';
 
 // style search box
 const SearchBox = styled(TextField)(() => ({
@@ -17,9 +18,25 @@ const SearchBox = styled(TextField)(() => ({
   },
 }));
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  alignContents: 'center',
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  pt: 2,
+  px: 4,
+  pb: 3,
+};
+
 export default function ImageSearch() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [open, setOpen] = useState(false);
 
   const unsplash = createApi({
     accessKey: 'd24RfJCmlQx9cvBRGcGNvhn0PpPAlvyxRe0tNGzYRhU',
@@ -35,6 +52,14 @@ export default function ImageSearch() {
       .then((response) => {
         setSearchResults(response.response.results);
       });
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -54,7 +79,9 @@ export default function ImageSearch() {
               style={{
                 opacity: 1.0, transform: 'translate(14px)', width: '55px', height: '55px',
               }}
-              sx={{ backgroundColor: 'gray', backgroundOpacity: '100%', color: 'white', fontSize: '190%' }}
+              sx={{
+                backgroundColor: 'gray', backgroundOpacity: '100%', color: 'white', fontSize: '190%',
+              }}
               onClick={() => handleSearch()}
             >
               <SearchIcon style={{ width: '100%', height: '100%' }} />
@@ -77,7 +104,10 @@ export default function ImageSearch() {
         gap={8}
       >
         {searchResults.map((image) => (
-          <ImageListItem key={Math.random().toString(36).substr(2, 9)}>
+          <ImageListItem
+            onClick={handleOpen}
+            key={Math.random().toString(36).substr(2, 9)}
+          >
             <img
               style={{ borderRadius: '6px' }}
               src={image.urls.thumb}
@@ -87,6 +117,31 @@ export default function ImageSearch() {
           </ImageListItem>
         ))}
       </ImageList>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={{ ...style, width: 290 }}>
+          <Button
+            color="success"
+            variant="contained"
+            sx={{ fontFamily: 'Verdana' }}
+            onClick={handleClose}
+          >
+            Add Photo
+          </Button>
+          <Button
+            variant="contained"
+            color="error"
+            sx={{ fontFamily: 'Verdana', marginLeft: 1 }}
+            onClick={handleClose}
+          >
+            Cancel
+          </Button>
+        </Box>
+      </Modal>
     </Box>
   );
 }
