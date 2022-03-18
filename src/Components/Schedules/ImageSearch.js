@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { createApi } from 'unsplash-js';
 import {
-  TextField, Box, Grid, Button,
+  TextField, Box, Button,
 } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
+import IconButton from '@mui/material/IconButton';
 
 export default function ImageSearch() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -19,7 +19,6 @@ export default function ImageSearch() {
   });
 
   const handleSearch = () => {
-    console.log(searchTerm);
     unsplash.search.getPhotos({
       query: searchTerm,
       page: 1,
@@ -30,31 +29,22 @@ export default function ImageSearch() {
       });
   };
 
-  console.log(searchResults);
-
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh' }}>
       <TextField
         id="outlined-basic"
-        label="Search"
-        placeholder="ex. Playground"
+        placeholder="Search"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <SearchIcon />
-            </InputAdornment>
-          ),
-        }}
         variant="outlined"
       />
-      <Button
-        variant="success"
+      <IconButton
+        aria-label="search"
+        sx={{ backgroundColor: 'gray', color: 'white' }}
         onClick={() => handleSearch()}
       >
-        Search
-      </Button>
+        <SearchIcon />
+      </IconButton>
 
       <ImageList
         sx={{
