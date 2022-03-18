@@ -5,6 +5,9 @@ import {
 } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 export default function ImageSearch() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -25,9 +28,8 @@ export default function ImageSearch() {
         setSearchResults(response.response.results);
       });
   };
-  
-  console.log(searchResults);
 
+  console.log(searchResults);
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh' }}>
@@ -52,7 +54,31 @@ export default function ImageSearch() {
       >
         Search
       </Button>
-      <Grid container spacing={2} columns={16}>
+
+      <ImageList
+        sx={{
+          img: {
+            minHeight: '80%',
+          },
+          div: {
+            minHeight: '20%',
+          },
+        }}
+        cols={2}
+        rowHeight={150}
+        gap={8}
+      >
+        {searchResults.map((image) => (
+          <ImageListItem key={Math.random().toString(36).substr(2, 9)}>
+            <img
+              src={image.urls.thumb}
+              alt={image.description}
+              loading="lazy"
+            />
+          </ImageListItem>
+        ))}
+      </ImageList>
+      {/* <Grid container spacing={2} columns={16}>
         <Grid
           item
           xs={16}
@@ -74,7 +100,7 @@ export default function ImageSearch() {
             <Grid item xs={15} />
           </Grid>
         </Grid>
-      </Grid>
+      </Grid> */}
     </Box>
   );
 }
