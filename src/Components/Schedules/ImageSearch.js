@@ -19,8 +19,9 @@ export default function ImageSearch() {
   });
 
   const handleSearch = () => {
+    console.log(searchTerm);
     unsplash.search.getPhotos({
-      query: 'cat',
+      query: searchTerm,
       page: 1,
       perPage: 10,
     })
@@ -71,6 +72,7 @@ export default function ImageSearch() {
         {searchResults.map((image) => (
           <ImageListItem key={Math.random().toString(36).substr(2, 9)}>
             <img
+              style={{ borderRadius: '6px' }}
               src={image.urls.thumb}
               alt={image.description}
               loading="lazy"
@@ -78,29 +80,6 @@ export default function ImageSearch() {
           </ImageListItem>
         ))}
       </ImageList>
-      {/* <Grid container spacing={2} columns={16}>
-        <Grid
-          item
-          xs={16}
-          sx={{
-            transition: '300ms ease',
-            '&:hover > .MuiGrid-item': {
-              opacity: 0.5,
-            },
-
-            '.MuiGrid-item:hover': {
-              opacity: 1,
-            },
-            '.MuiGrid-item:hover .MuiTypography-root': {
-              color: 'grey !important',
-            },
-          }}
-        >
-          <Grid container direction="row">
-            <Grid item xs={15} />
-          </Grid>
-        </Grid>
-      </Grid> */}
     </Box>
   );
 }
