@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import { createApi } from 'unsplash-js';
 import {
-  TextField, Box, Button,
+  TextField, Box,
 } from '@mui/material';
-import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import IconButton from '@mui/material/IconButton';
+import { styled } from '@material-ui/core/styles';
 
 export default function ImageSearch() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+
+  // style search box
+  const SearchBox = styled(TextField)(() => ({
+    '& fieldset': {
+      borderRadius: '25px',
+    },
+  }));
 
   const unsplash = createApi({
     accessKey: 'd24RfJCmlQx9cvBRGcGNvhn0PpPAlvyxRe0tNGzYRhU',
@@ -31,20 +38,26 @@ export default function ImageSearch() {
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh' }}>
-      <TextField
+      <SearchBox
         id="outlined-basic"
         placeholder="Search"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         variant="outlined"
+        fullWidth
+        InputProps={{
+          endAdornment: (
+            <IconButton
+              aria-label="search"
+              style={{ transform: 'translate(20px)', width: '60px', height: '60px' }}
+              sx={{ backgroundColor: 'gray', color: 'white', fontSize: '200%' }}
+              onClick={() => handleSearch()}
+            >
+              <SearchIcon style={{ width: '100%', height: '100%' }} />
+            </IconButton>
+          ),
+        }}
       />
-      <IconButton
-        aria-label="search"
-        sx={{ backgroundColor: 'gray', color: 'white' }}
-        onClick={() => handleSearch()}
-      >
-        <SearchIcon />
-      </IconButton>
 
       <ImageList
         sx={{
