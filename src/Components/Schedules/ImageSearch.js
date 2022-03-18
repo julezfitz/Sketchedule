@@ -8,10 +8,11 @@ import SearchIcon from '@mui/icons-material/Search';
 
 export default function ImageSearch() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
   const unsplash = createApi({
-    applicationId: '{d24RfJCmlQx9cvBRGcGNvhn0PpPAlvyxRe0tNGzYRhU}',
-    secret: process.env.UNSPLASH_SECRET,
+    accessKey: 'd24RfJCmlQx9cvBRGcGNvhn0PpPAlvyxRe0tNGzYRhU',
+    // secret: process.env.UNSPLASH_SECRET,
   });
 
   const handleSearch = () => {
@@ -21,9 +22,12 @@ export default function ImageSearch() {
       perPage: 10,
     })
       .then((response) => {
-        console.log(response);
+        setSearchResults(response.response.results);
       });
   };
+  
+  console.log(searchResults);
+
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh' }}>
