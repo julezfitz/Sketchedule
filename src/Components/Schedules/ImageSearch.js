@@ -9,6 +9,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@material-ui/core/styles';
 import Modal from '@mui/material/Modal';
+import { useNavigate } from 'react-router-dom';
 
 // style search box
 const SearchBox = styled(TextField)(() => ({
@@ -36,8 +37,10 @@ const style = {
 
 export default function ImageSearch() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedImage, setSelectedImage] = useState({});
   const [searchResults, setSearchResults] = useState([]);
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   const unsplash = createApi({
     accessKey: 'd24RfJCmlQx9cvBRGcGNvhn0PpPAlvyxRe0tNGzYRhU',
@@ -62,12 +65,24 @@ export default function ImageSearch() {
     }
   };
 
-  const handleOpen = () => {
+  const handleOpen = (image) => {
     setOpen(true);
+    setSelectedImage({
+      imageThumb: image.urls.thumb,
+      imageDescription: image.description,
+    });
   };
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleImageSelection = () => {
+    navigate('/new', {
+      state: {
+        selectedImage,
+      },
+    });
   };
 
   return (
@@ -114,7 +129,7 @@ export default function ImageSearch() {
       >
         {searchResults.map((image) => (
           <ImageListItem
-            onClick={handleOpen}
+            onClick={() => handleOpen(image)}
             key={Math.random().toString(36).substr(2, 9)}
           >
             <img
@@ -137,7 +152,7 @@ export default function ImageSearch() {
             color="success"
             variant="contained"
             sx={{ fontFamily: 'Verdana' }}
-            onClick={handleClose}
+            onClick={handleImageSelection}
           >
             Add Photo
           </Button>
