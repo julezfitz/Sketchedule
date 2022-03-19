@@ -130,7 +130,7 @@ export default function ImageSearch() {
         {searchResults.map((image) => (
           <ImageListItem
             onClick={() => handleOpen(image)}
-            key={Math.random().toString(36).substr(2, 9)}
+            key={image.id}
           >
             <img
               style={{ borderRadius: '6px' }}

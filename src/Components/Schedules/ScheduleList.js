@@ -29,37 +29,37 @@ export default function ScheduleList() {
           <Grid container direction="row">
             <Grid item xs={15}>
               <ScheduleItem
-                key={Math.random().toString(36).substr(2, 9)}
+                key="20"
                 name="Trip to Grocery Store"
               />
             </Grid>
             <Grid item xs={15}>
               <ScheduleItem
-                key={Math.random().toString(36).substr(2, 9)}
+                key="21"
                 name="Saturday"
               />
             </Grid>
             <Grid item xs={15}>
               <ScheduleItem
-                key={Math.random().toString(36).substr(2, 9)}
+                key="22"
                 name="School Day"
               />
             </Grid>
             <Grid item xs={15}>
               <ScheduleItem
-                key={Math.random().toString(36).substr(2, 9)}
+                key="23"
                 name="Trip To The Grocery Store"
               />
             </Grid>
             <Grid item xs={15}>
               <ScheduleItem
-                key={Math.random().toString(36).substr(2, 9)}
+                key="24"
                 name="Visit to Grandpa's"
               />
             </Grid>
             <Grid item xs={15}>
               <ScheduleItem
-                key={Math.random().toString(36).substr(2, 9)}
+                key="25"
                 name="Visit to the Doctor"
               />
             </Grid>

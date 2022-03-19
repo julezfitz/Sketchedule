@@ -37,7 +37,7 @@ function UserMenu({
       {settings.map((setting) => (
         <MenuItem
           onClick={handleCloseUserMenu}
-          key={Math.random().toString(36).substr(2, 9)}
+          key={setting.path}
           sx={{
             padding: 0,
             '& p': { textAlign: 'left' },

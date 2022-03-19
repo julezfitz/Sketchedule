@@ -1,6 +1,5 @@
 // import '././App.css';
 import React from 'react';
-import { createApi } from 'unsplash-js';
 import { Container } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
