@@ -5,11 +5,8 @@ import {
 import {
   Gesture, LibraryAdd, Search, CameraAlt, AddPhotoAlternate, Edit,
 } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
 
-export default function NewScheduleItem() {
-  const navigate = useNavigate();
-
+export default function NewSchedule() {
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh', alignItems: 'center' }}>
       <Grid
@@ -118,7 +115,6 @@ export default function NewScheduleItem() {
                 <Button
                   size="small"
                   type="submit"
-                  sx={{ fontFamily: 'Verdana' }}
                   color="success"
                   variant="contained"
                 >
@@ -131,10 +127,8 @@ export default function NewScheduleItem() {
                 <Button
                   size="small"
                   type="submit"
-                  sx={{ fontFamily: 'Verdana' }}
                   color="error"
                   variant="contained"
-                  onClick={() => navigate('/edit')}
                 >
                   Cancel
 

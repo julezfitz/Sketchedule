@@ -4,7 +4,7 @@ import { Divider } from '@mui/material';
 import Heading from './Heading/Heading';
 import ScheduleList from './Schedules/ScheduleList';
 import EditSchedule from './Schedules/EditSchedule';
-import NewScheduleItem from './Schedules/NewScheduleItem';
+import NewSchedule from './Schedules/NewSchedule';
 
 export default function Routing() {
   const [headingTitle, setHeadingTitle] = useState(null);
@@ -56,7 +56,7 @@ export default function Routing() {
         <Route
           path="/new"
           element={
-            <NewScheduleItem />
+            <NewSchedule />
                     }
         />
         <Route
