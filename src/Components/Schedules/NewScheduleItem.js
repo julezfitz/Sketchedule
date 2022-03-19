@@ -31,10 +31,6 @@ export default function NewScheduleItem() {
     return { uploadedImage, uploader };
   }
 
-  const handleSearchLibrary = () => {
-    navigate('/search');
-  };
-
   const { result, uploader } = useDisplayImage();
 
   return (
@@ -121,7 +117,7 @@ export default function NewScheduleItem() {
                       <Grid
                         container
                         direction="row"
-                        onClick={() => handleSearchLibrary()}
+                        onClick={() => navigate('/search')}
                         spacing={9}
                       >
                         <Grid item xs={8}>Search Icons</Grid>
