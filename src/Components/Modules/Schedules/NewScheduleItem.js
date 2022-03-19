@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
-  Paper, Grid, Box, Button, List, ListItem, InputLabel, Input, Card, CardContent, FormControl,
+  Paper, Grid, IconButton, Box, ListItemText, Button, List, ListItem,
+  InputLabel, Input, Card, CardContent, FormControl,
 } from '@mui/material';
 import {
   Gesture, LibraryAdd, Search, AddPhotoAlternate, Edit,
@@ -106,40 +107,33 @@ export default function NewScheduleItem() {
                       divider
                       sx={{ marginBottom: 1 }}
                     >
-                      <Grid container direction="row" spacing={9}>
-                        <Grid item xs={8}>SketchIt</Grid>
-                        <Grid item xs={1}><Gesture /></Grid>
-                      </Grid>
+                      <ListItemText primary="SketchIt" />
+                      <IconButton edge="end">
+                        <Gesture />
+                      </IconButton>
                     </ListItem>
                     <ListItem
                       divider
                       sx={{ marginBottom: 1 }}
+                      onClick={() => navigate('/search')}
                     >
-                      <Grid
-                        container
-                        direction="row"
-                        onClick={() => navigate('/search')}
-                        spacing={9}
-                      >
-                        <Grid item xs={8}>Search Icons</Grid>
-                        <Grid item xs={1}><Search /></Grid>
-                      </Grid>
+                      <ListItemText primary="Search Images" />
+                      <IconButton edge="end">
+                        <Search />
+                      </IconButton>
                     </ListItem>
-                    <ListItem>
-                      <CustomUploadComponent
-                        component={Grid}
-                        container
-                        direction="row"
-                        spacing={9}
-                        onFileUpload={(e) => {
-                          setImage(e.target.files[0]);
-                          uploader(e);
-                        }}
-                      >
-                        <Grid item xs={8}>Photo Library</Grid>
-                        <Grid item xs={1}><LibraryAdd /></Grid>
-                      </CustomUploadComponent>
-                    </ListItem>
+                    <CustomUploadComponent
+                      component={ListItem}
+                      onFileUpload={(e) => {
+                        setImage(e.target.files[0]);
+                        uploader(e);
+                      }}
+                    >
+                      <ListItemText primary="Search Images" />
+                      <IconButton edge="end">
+                        <LibraryAdd />
+                      </IconButton>
+                    </CustomUploadComponent>
                   </List>
                 </Grid>
               </Grid>
@@ -158,7 +152,6 @@ export default function NewScheduleItem() {
                   variant="contained"
                 >
                   Save
-
                 </Button>
               </Grid>
 
@@ -172,7 +165,6 @@ export default function NewScheduleItem() {
                   onClick={() => navigate('/edit')}
                 >
                   Cancel
-
                 </Button>
               </Grid>
             </Grid>
