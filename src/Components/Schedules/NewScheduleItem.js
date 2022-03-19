@@ -14,6 +14,8 @@ export default function NewScheduleItem() {
 
   const fileInput = useRef();
 
+  console.log(location.state);
+
   function useDisplayImage() {
     const [uploadedImage, setUploadedImage] = useState('');
 
@@ -31,7 +33,7 @@ export default function NewScheduleItem() {
     return { uploadedImage, uploader };
   }
 
-  const { result, uploader } = useDisplayImage();
+  const { uploadedImage, uploader } = useDisplayImage();
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh', alignItems: 'center' }}>
@@ -59,7 +61,7 @@ export default function NewScheduleItem() {
               alignItems="center"
               justifyContent="center"
             >
-              {(result && <img style={{ 'object-fit': 'cover', 'border-radius': '6px' }} width="140px" height="140px" src={result} alt="" />)
+              {(uploadedImage && <img style={{ objectFit: 'cover', borderRadius: '6px' }} width="140px" height="140px" src={uploadedImage} alt="" />)
               || (
               <AddPhotoAlternate
                 sx={{ fontSize: 120, marginLeft: 2 }}
@@ -129,7 +131,7 @@ export default function NewScheduleItem() {
                         container
                         direction="row"
                         spacing={9}
-                        // onClick={() => fileInput.current.children[0].click()}
+                        onClick={() => fileInput.current.children[0].click()}
                       >
                         <Grid item xs={8}>Photo Library</Grid>
                         <Grid item xs={1}><LibraryAdd /></Grid>
@@ -175,20 +177,18 @@ export default function NewScheduleItem() {
         </Grid>
       </Grid>
 
-      {/* Form for uploading images from file */}
-      <form method="post" encType="multipart/form-data">
-        <Input
-          type="file"
-          onChange={(e) => {
-            setImage(e.target.files[0]);
-            uploader(e);
-          }}
-          id="file"
-          ref={fileInput}
-          name="file"
-          style={{ display: 'none' }}
-        />
-      </form>
+      {/* Uploading images from file */}
+      <Input
+        type="file"
+        onChange={(e) => {
+          setImage(e.target.files[0]);
+          uploader(e);
+        }}
+        id="file"
+        ref={fileInput}
+        name="file"
+        style={{ display: 'none' }}
+      />
     </Box>
   );
 }
