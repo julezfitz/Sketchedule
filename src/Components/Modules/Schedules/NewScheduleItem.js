@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Paper, Grid, Box, Button, List, ListItem, InputLabel, Input, Card, CardContent, FormControl,
 } from '@mui/material';
@@ -6,13 +6,12 @@ import {
   Gesture, LibraryAdd, Search, AddPhotoAlternate, Edit,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
+import CustomUploadComponent from '../CustomUploadComponent';
 
 export default function NewScheduleItem() {
   const navigate = useNavigate();
   const location = useLocation();
   const [image, setImage] = useState('');
-
-  const fileInput = useRef();
 
   console.log(location.state);
 
@@ -127,15 +126,19 @@ export default function NewScheduleItem() {
                       </Grid>
                     </ListItem>
                     <ListItem>
-                      <Grid
+                      <CustomUploadComponent
+                        component={Grid}
                         container
                         direction="row"
                         spacing={9}
-                        onClick={() => fileInput.current.children[0].click()}
+                        onFileUpload={(e) => {
+                          setImage(e.target.files[0]);
+                          uploader(e);
+                        }}
                       >
                         <Grid item xs={8}>Photo Library</Grid>
                         <Grid item xs={1}><LibraryAdd /></Grid>
-                      </Grid>
+                      </CustomUploadComponent>
                     </ListItem>
                   </List>
                 </Grid>
@@ -176,19 +179,6 @@ export default function NewScheduleItem() {
           </Grid>
         </Grid>
       </Grid>
-
-      {/* Uploading images from file */}
-      <Input
-        type="file"
-        onChange={(e) => {
-          setImage(e.target.files[0]);
-          uploader(e);
-        }}
-        id="file"
-        ref={fileInput}
-        name="file"
-        style={{ display: 'none' }}
-      />
     </Box>
   );
 }

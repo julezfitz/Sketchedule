@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Divider } from '@mui/material';
 import Heading from './Heading/Heading';
-import ScheduleList from './Schedules/ScheduleList';
-import EditSchedule from './Schedules/EditSchedule';
-import ImageSearch from './Schedules/ImageSearch';
-import NewScheduleItem from './Schedules/NewScheduleItem';
+import ScheduleList from './Modules/Schedules/ScheduleList';
+import EditSchedule from './Modules/Schedules/EditSchedule';
+import ImageSearch from './Modules/Schedules/ImageSearch';
+import NewScheduleItem from './Modules/Schedules/NewScheduleItem';
 
 export default function Routing() {
   const [headingTitle, setHeadingTitle] = useState(null);
