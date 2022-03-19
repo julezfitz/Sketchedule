@@ -37,7 +37,7 @@ export default function EditSchedule() {
         rowHeight={150}
         gap={8}
       >
-        <ImageListItem key={Math.random().toString(36).substr(2, 9)}>
+        <ImageListItem key="10">
           <Card
             sx={{ paddingLeft: '20%' }}
             style={{ minHeight: '80%', justifyContent: 'center', display: 'flex' }}
@@ -52,7 +52,7 @@ export default function EditSchedule() {
           </Card>
         </ImageListItem>
 
-        <ImageListItem key={Math.random().toString(36).substr(2, 9)}>
+        <ImageListItem key="11">
           <img
             alt="Clothing"
             src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8"
@@ -70,7 +70,7 @@ export default function EditSchedule() {
             position="below"
           />
         </ImageListItem>
-        <ImageListItem key={Math.random().toString(36).substr(2, 9)}>
+        <ImageListItem key="12">
           <img
             src="https://images.unsplash.com/photo-1575783970733-1aaedde1db74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8"
             alt="Playground"
@@ -81,7 +81,7 @@ export default function EditSchedule() {
             position="below"
           />
         </ImageListItem>
-        <ImageListItem key={Math.random().toString(36).substr(2, 9)}>
+        <ImageListItem key="13">
           <img
             src="https://images.unsplash.com/photo-1475090169767-40ed8d18f67d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8"
             alt="Lunch"
@@ -92,7 +92,7 @@ export default function EditSchedule() {
             position="below"
           />
         </ImageListItem>
-        <ImageListItem key={Math.random().toString(36).substr(2, 9)}>
+        <ImageListItem key="14">
           <img
             src="https://images.unsplash.com/photo-1575783970733-1aaedde1db74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8"
             alt="Playground"
@@ -103,7 +103,7 @@ export default function EditSchedule() {
             position="below"
           />
         </ImageListItem>
-        <ImageListItem key={Math.random().toString(36).substr(2, 9)}>
+        <ImageListItem key="15">
           <img
             alt="Clothing"
             src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8"
