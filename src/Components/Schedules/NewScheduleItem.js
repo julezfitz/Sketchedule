@@ -11,11 +11,8 @@ export default function NewScheduleItem() {
   const navigate = useNavigate();
   const location = useLocation();
   const [image, setImage] = useState('');
-  const imageRef = useRef(null);
 
   const fileInput = useRef();
-
-  console.log(location.state);
 
   function useDisplayImage() {
     const [result, setResult] = useState('');
@@ -66,7 +63,7 @@ export default function NewScheduleItem() {
               alignItems="center"
               justifyContent="center"
             >
-              {(result && <img ref={imageRef} style={{ 'object-fit': 'cover', 'border-radius': '6px' }} width="140px" height="140px" src={result} alt="" />)
+              {(result && <img style={{ 'object-fit': 'cover', 'border-radius': '6px' }} width="140px" height="140px" src={result} alt="" />)
               || (
               <AddPhotoAlternate
                 sx={{ fontSize: 120, marginLeft: 2 }}
