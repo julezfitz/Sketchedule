@@ -8,6 +8,7 @@ import {
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import CustomUploadComponent from '../CustomUploadComponent';
+import useDisplayImage from '../../../Hooks/useDisplayImage';
 
 export default function NewScheduleItem() {
   const navigate = useNavigate();
@@ -15,23 +16,6 @@ export default function NewScheduleItem() {
   const [image, setImage] = useState('');
 
   console.log(location.state);
-
-  function useDisplayImage() {
-    const [uploadedImage, setUploadedImage] = useState('');
-
-    function uploader(e) {
-      const imageFile = e.target.files[0];
-
-      const reader = new FileReader();
-      reader.addEventListener('load', (e) => {
-        setUploadedImage(e.target.result);
-      });
-
-      reader.readAsDataURL(imageFile);
-    }
-
-    return { uploadedImage, uploader };
-  }
 
   const { uploadedImage, uploader } = useDisplayImage();
 
@@ -129,7 +113,7 @@ export default function NewScheduleItem() {
                         uploader(e);
                       }}
                     >
-                      <ListItemText primary="Search Images" />
+                      <ListItemText primary="Upload Image" />
                       <IconButton edge="end">
                         <LibraryAdd />
                       </IconButton>
