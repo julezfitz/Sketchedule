@@ -3,7 +3,7 @@ import {
   Paper, Grid, Box, Button, List, ListItem, InputLabel, Input, Card, CardContent, FormControl,
 } from '@mui/material';
 import {
-  Gesture, LibraryAdd, Search, CameraAlt, AddPhotoAlternate, Edit,
+  Gesture, LibraryAdd, Search, AddPhotoAlternate, Edit,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -15,20 +15,20 @@ export default function NewScheduleItem() {
   const fileInput = useRef();
 
   function useDisplayImage() {
-    const [result, setResult] = useState('');
+    const [uploadedImage, setUploadedImage] = useState('');
 
     function uploader(e) {
       const imageFile = e.target.files[0];
 
       const reader = new FileReader();
       reader.addEventListener('load', (e) => {
-        setResult(e.target.result);
+        setUploadedImage(e.target.result);
       });
 
       reader.readAsDataURL(imageFile);
     }
 
-    return { result, uploader };
+    return { uploadedImage, uploader };
   }
 
   const handleSearchLibrary = () => {
