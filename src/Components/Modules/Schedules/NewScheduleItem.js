@@ -46,6 +46,7 @@ export default function NewScheduleItem() {
               justifyContent="center"
             >
               {(uploadedImage && <img style={{ objectFit: 'cover', borderRadius: '6px' }} width="140px" height="140px" src={uploadedImage} alt="" />)
+              || (location.state.selectedImage && <img style={{ objectFit: 'cover', borderRadius: '6px' }} width="140px" height="140px" src={location.state.selectedImage.imageThumb} alt={location.state.selectedImage.imageDescription} />)
               || (
               <AddPhotoAlternate
                 sx={{ fontSize: 120, marginLeft: 2 }}
