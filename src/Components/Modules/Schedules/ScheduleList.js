@@ -1,13 +1,34 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
 import ScheduleItem from './ScheduleItem';
+
+const addButtonStyle = {
+  margin: 0,
+  top: 'auto',
+  right: 20,
+  bottom: 20,
+  left: 'auto',
+  position: 'fixed',
+  width: 85,
+  height: 85,
+};
+
+const addIcon = {
+  fontSize: 70,
+};
+
+const hello = () => {
+  console.log('hello');
+};
 
 export default function ScheduleList() {
 //   const [schedules, setSchedules] = useState([]);
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh' }}>
-      <Typography>My Sketchedules</Typography>
+      <Typography marginLeft={1.5}>My Sketchedules</Typography>
       <Grid container spacing={2} columns={16}>
         <Grid
           item
@@ -63,7 +84,28 @@ export default function ScheduleList() {
                 name="Visit to the Doctor"
               />
             </Grid>
+            <Grid item xs={15}>
+              <ScheduleItem
+                key="23"
+                name="Trip To The Grocery Store"
+              />
+            </Grid>
+            <Grid item xs={15}>
+              <ScheduleItem
+                key="24"
+                name="Visit to Grandpa's"
+              />
+            </Grid>
+            <Grid item xs={15}>
+              <ScheduleItem
+                key="25"
+                name="Visit to the Doctor"
+              />
+            </Grid>
           </Grid>
+          <Fab onClick={hello} color="secondary" style={addButtonStyle} aria-label="add new schedule">
+            <AddIcon style={addIcon} labelStyle={{ fontSize: '200%' }} />
+          </Fab>
         </Grid>
       </Grid>
     </Box>
