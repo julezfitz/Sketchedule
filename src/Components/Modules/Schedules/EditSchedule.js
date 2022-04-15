@@ -51,6 +51,7 @@ export default function EditSchedule() {
         onChange={(e) => setTitleValue(e.target.value)}
         variant="standard"
         InputProps={{ style: { fontSize: 22 } }}
+        onBlur={() => {toggleEdit();}}
       />
       <IconButton
         size="large"
