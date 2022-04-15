@@ -33,6 +33,10 @@ export default function EditSchedule() {
     }
   };
 
+  const handleDeleteItem = () => {
+    console.log('removed item');
+  };
+
   useEffect(() => {
     if (!disabled) {
       inputRef.current.focus();
@@ -51,7 +55,7 @@ export default function EditSchedule() {
         onChange={(e) => setTitleValue(e.target.value)}
         variant="standard"
         InputProps={{ style: { fontSize: 22 } }}
-        onBlur={() => {toggleEdit();}}
+        onBlur={() => { toggleEdit(); }}
       />
       <IconButton
         size="large"
@@ -98,6 +102,7 @@ export default function EditSchedule() {
           <IconButton
             size="medium"
             style={{ color: 'white', marginLeft: 130, position: 'absolute' }}
+            onClick={() => handleDeleteItem()}
           >
             <Delete />
           </IconButton>
