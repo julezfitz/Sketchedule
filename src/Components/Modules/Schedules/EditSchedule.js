@@ -10,6 +10,12 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
 
+const titleStyle = {
+  width: '70%',
+  border: 'none',
+  marginBottom: '5%',
+};
+
 export default function EditSchedule() {
   const todayDate = new Date(Date.now()).toLocaleDateString('en-ZA');
 
@@ -37,17 +43,19 @@ export default function EditSchedule() {
     <Box>
       <TextField
         id="title-display-field"
-        sx={{ width: '70%' }}
+        sx={titleStyle}
         ref={inputRef}
         value={title}
         inputRef={inputRef}
         disabled={disabled}
         onChange={(e) => setTitleValue(e.target.value)}
+        variant="standard"
+        InputProps={{ style: { fontSize: 22 } }}
       />
       <IconButton
         size="large"
         color="inherit"
-        style={{ marginLeft: 2.5 }}
+        style={{ marginLeft: 2.5, paddingBottom: 1 }}
         onClick={() => { toggleEdit(); }}
       >
         <Edit />
