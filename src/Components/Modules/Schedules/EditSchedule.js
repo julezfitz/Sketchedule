@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Edit, Delete, NoEncryption } from '@mui/icons-material';
 import {
   IconButton, Card, CardActionArea, Typography, Box,
@@ -11,15 +11,26 @@ import { useNavigate } from 'react-router-dom';
 
 export default function EditSchedule() {
   const navigate = useNavigate();
+  const inputRef = useRef(null);
+  const [title, setTitleValue] = useState('Default text');
+
+  // useEffect(() => {
+  //   console.log('value: ', inputRef.current.value);
+  // });
 
   return (
     <Box>
-      <Typography>
+      <Typography
+        label="Schedule Title"
+        id="title-display-field"
+        // value={inputRef.current.value}
+      >
         New Sketchedule - July 10, 2022
         <IconButton
           size="large"
           color="inherit"
           style={{ marginLeft: 2.5 }}
+          // onClick={() => this.myTextField.focus()}
         >
           <Edit />
         </IconButton>
