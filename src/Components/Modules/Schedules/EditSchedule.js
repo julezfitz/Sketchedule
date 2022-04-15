@@ -3,6 +3,7 @@ import { Edit, Delete, NoEncryption } from '@mui/icons-material';
 import {
   IconButton, Card, CardActionArea, Typography, Box,
 } from '@mui/material';
+import TextField from '@mui/material/TextField';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
@@ -10,31 +11,47 @@ import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
 
 export default function EditSchedule() {
+  const todayDate = new Date(Date.now()).toLocaleDateString('en-ZA');
+
   const navigate = useNavigate();
   const inputRef = useRef(null);
-  const [title, setTitleValue] = useState('Default text');
+  const [title, setTitleValue] = useState(`New Schedule - ${todayDate}`);
+  const [disabled, setDisabled] = useState(true);
 
-  // useEffect(() => {
-  //   console.log('value: ', inputRef.current.value);
-  // });
+  const toggleEdit = () => {
+    if (disabled) {
+      setDisabled(false);
+      inputRef.current.focus();
+    } else {
+      setDisabled(true);
+    }
+  };
+
+  useEffect(() => {
+    if (!disabled) {
+      inputRef.current.focus();
+    }
+  }, [disabled]);
 
   return (
     <Box>
-      <Typography
-        label="Schedule Title"
+      <TextField
         id="title-display-field"
-        // value={inputRef.current.value}
+        sx={{ width: '70%' }}
+        ref={inputRef}
+        value={title}
+        inputRef={inputRef}
+        disabled={disabled}
+        onChange={(e) => setTitleValue(e.target.value)}
+      />
+      <IconButton
+        size="large"
+        color="inherit"
+        style={{ marginLeft: 2.5 }}
+        onClick={() => { toggleEdit(); }}
       >
-        New Sketchedule - July 10, 2022
-        <IconButton
-          size="large"
-          color="inherit"
-          style={{ marginLeft: 2.5 }}
-          // onClick={() => this.myTextField.focus()}
-        >
-          <Edit />
-        </IconButton>
-      </Typography>
+        <Edit />
+      </IconButton>
       <ImageList
         sx={{
           img: {
