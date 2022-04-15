@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
+import { useNavigate } from 'react-router-dom';
 import ScheduleItem from './ScheduleItem';
 
 const addButtonStyle = {
@@ -19,12 +20,10 @@ const addIcon = {
   fontSize: 70,
 };
 
-const hello = () => {
-  console.log('hello');
-};
-
 export default function ScheduleList() {
-//   const [schedules, setSchedules] = useState([]);
+  const navigate = useNavigate();
+
+  //   const [schedules, setSchedules] = useState([]);
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh' }}>
@@ -103,7 +102,7 @@ export default function ScheduleList() {
               />
             </Grid>
           </Grid>
-          <Fab onClick={hello} color="secondary" style={addButtonStyle} aria-label="add new schedule">
+          <Fab onClick={() => navigate('/edit')} color="secondary" style={addButtonStyle} aria-label="add new schedule">
             <AddIcon style={addIcon} labelStyle={{ fontSize: '200%' }} />
           </Fab>
         </Grid>
