@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
-  IconButton, Typography, Paper, Grid, MenuList, MenuItem, Menu, ListItemText, ListItemIcon,
+  Button, IconButton, Typography, Paper, Grid, MenuList, MenuItem, Menu, ListItemText, 
+  ListItemIcon, Dialog, DialogTitle, DialogContent, DialogActions, DialogContentText,
 } from '@mui/material';
 import { Edit, Delete } from '@mui/icons-material';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
@@ -8,11 +9,21 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 export default function ScheduleItem({ name }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event) => {
+  const handleOptionsClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+  const handleOptionsClose = () => {
     setAnchorEl(null);
+  };
+
+  const [deleteOpen, setDeleteOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setDeleteOpen(true);
+  };
+
+  const handleDeleteClose = () => {
+    setDeleteOpen(false);
   };
 
   return (
@@ -38,7 +49,7 @@ export default function ScheduleItem({ name }) {
               aria-expanded={open ? 'true' : undefined}
               variant="contained"
               disableElevation
-              onClick={handleClick}
+              onClick={handleOptionsClick}
             >
               <MoreHorizIcon />
             </IconButton>
@@ -50,7 +61,7 @@ export default function ScheduleItem({ name }) {
               }}
               anchorEl={anchorEl}
               open={open}
-              onClose={handleClose}
+              onClose={handleOptionsClose}
             >
               <MenuList>
                 <MenuItem>
@@ -62,7 +73,9 @@ export default function ScheduleItem({ name }) {
                   </ListItemIcon>
                   <ListItemText>Edit</ListItemText>
                 </MenuItem>
-                <MenuItem>
+                <MenuItem
+                  onClick={handleClickOpen}
+                >
                   <ListItemIcon
                     size="large"
                     color="inherit"
@@ -77,6 +90,23 @@ export default function ScheduleItem({ name }) {
 
         </Grid>
       </Grid>
+
+      <Dialog
+        open={deleteOpen}
+        onClose={handleDeleteClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          Are you sure you would like to delete this Sketchedule?
+        </DialogTitle>
+        <DialogActions>
+          <Button onClick={handleDeleteClose}>Confirm Delete</Button>
+          <Button onClick={handleDeleteClose} autoFocus>
+            Cancel
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Paper>
   );
 }
