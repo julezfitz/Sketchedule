@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
   Button, IconButton, Typography, Paper, Grid, MenuList, MenuItem, Menu, ListItemText, 
-  ListItemIcon, Dialog, DialogTitle, DialogContent, DialogActions, DialogContentText,
+  ListItemIcon, Dialog, DialogTitle, DialogActions,
 } from '@mui/material';
 import { Edit, Delete } from '@mui/icons-material';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
@@ -32,7 +32,7 @@ export default function ScheduleItem({ name }) {
         <Grid item xs={16} sm container>
           <Grid item xs={13} container direction="column" spacing={1}>
             <Grid item xs>
-              <Typography gutterBottom variant="h6" component="div">
+              <Typography style={{ marginTop: '5%' }} variant="h6" component="div">
                 {name}
               </Typography>
             </Grid>
@@ -94,10 +94,10 @@ export default function ScheduleItem({ name }) {
       <Dialog
         open={deleteOpen}
         onClose={handleDeleteClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
+        aria-labelledby="delete-dialog"
+        aria-describedby="delete-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
+        <DialogTitle id="delete-dialog">
           Are you sure you would like to delete this Sketchedule?
         </DialogTitle>
         <DialogActions>
