@@ -44,7 +44,13 @@ export default function ScheduleUseView() {
         rowHeight={150}
         gap={8}
       >
-        <Item />
+        {scheduleItems.map((scheduleItem) => (
+          <Item
+            itemName={scheduleItem.itemName}
+            alt={scheduleItem.alt}
+            imageURL={scheduleItem.imageURL}
+          />
+        ))}
       </ImageList>
     </Box>
   );
