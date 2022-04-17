@@ -1,5 +1,5 @@
 import React from 'react';
-import { Edit, Delete, NoEncryption } from '@mui/icons-material';
+import { Edit, Delete } from '@mui/icons-material';
 import {
   IconButton, Card, CardActionArea, Typography, Box,
 } from '@mui/material';
