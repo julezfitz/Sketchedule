@@ -1,29 +1,70 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Edit, Delete, NoEncryption } from '@mui/icons-material';
 import {
   IconButton, Card, CardActionArea, Typography, Box,
 } from '@mui/material';
+import TextField from '@mui/material/TextField';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
 
+const titleStyle = {
+  width: '70%',
+  border: 'none',
+  marginBottom: '5%',
+};
+
 export default function EditSchedule() {
+  const todayDate = new Date(Date.now()).toLocaleDateString('en-ZA');
+
   const navigate = useNavigate();
+  const inputRef = useRef(null);
+  const [title, setTitleValue] = useState(`New Schedule - ${todayDate}`);
+  const [disabled, setDisabled] = useState(true);
+
+  const toggleEdit = () => {
+    if (disabled) {
+      setDisabled(false);
+      inputRef.current.focus();
+    } else {
+      setDisabled(true);
+    }
+  };
+
+  const handleDeleteItem = () => {
+    console.log('removed item');
+  };
+
+  useEffect(() => {
+    if (!disabled) {
+      inputRef.current.focus();
+    }
+  }, [disabled]);
 
   return (
     <Box>
-      <Typography>
-        New Sketchedule - July 10, 2022
-        <IconButton
-          size="large"
-          color="inherit"
-          style={{ marginLeft: 2.5 }}
-        >
-          <Edit />
-        </IconButton>
-      </Typography>
+      <TextField
+        id="title-display-field"
+        sx={titleStyle}
+        ref={inputRef}
+        value={title}
+        inputRef={inputRef}
+        disabled={disabled}
+        onChange={(e) => setTitleValue(e.target.value)}
+        variant="standard"
+        InputProps={{ style: { fontSize: 22 } }}
+        onBlur={() => { toggleEdit(); }}
+      />
+      <IconButton
+        size="large"
+        color="inherit"
+        style={{ marginLeft: 2.5, paddingBottom: 1 }}
+        onClick={() => { toggleEdit(); }}
+      >
+        <Edit />
+      </IconButton>
       <ImageList
         sx={{
           img: {
@@ -61,6 +102,7 @@ export default function EditSchedule() {
           <IconButton
             size="medium"
             style={{ color: 'white', marginLeft: 130, position: 'absolute' }}
+            onClick={() => handleDeleteItem()}
           >
             <Delete />
           </IconButton>
