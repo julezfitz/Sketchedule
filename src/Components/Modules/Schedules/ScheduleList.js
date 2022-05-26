@@ -4,6 +4,7 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
 import ScheduleItem from './ScheduleItem';
+import { db } from '../../../db';
 
 const addButtonStyle = {
   margin: 0,
@@ -23,6 +24,21 @@ const addIcon = {
 export default function ScheduleList() {
   const navigate = useNavigate();
 
+  const createNewSchedule = async () => {
+    console.log('create new schedule!');
+
+    try {
+      // Add the new schedule
+      const id = await db.schedules.add({
+        name: 'New Schedule',
+        dateCreated: new Date(),
+      });
+
+      console.log(id);
+    } catch (error) {
+      console.log(`Failed to add: ${error}`);
+    }
+  };
   //   const [schedules, setSchedules] = useState([]);
 
   return (
@@ -102,7 +118,15 @@ export default function ScheduleList() {
               />
             </Grid>
           </Grid>
-          <Fab onClick={() => navigate('/edit')} color="secondary" style={addButtonStyle} aria-label="add new schedule">
+          <Fab
+            onClick={() => {
+              createNewSchedule();
+              navigate('/edit');
+            }}
+            color="secondary"
+            style={addButtonStyle}
+            aria-label="add new schedule"
+          >
             <AddIcon style={addIcon} labelStyle={{ fontSize: '200%' }} />
           </Fab>
         </Grid>
