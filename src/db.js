@@ -2,8 +2,8 @@ import Dexie from 'dexie';
 
 export const db = new Dexie('sketcheduleDatabase');
 db.version(1).stores({
-  scheduleItem: '++id, imageSrc, altText, imageLabel, complete',
-  schedule: '++id, name, dateCreated',
+  scheduleItems: '++id, imageSrc, altText, imageLabel, complete',
+  schedules: '++id, name, dateCreated',
 });
 
 // class SchedulesCollection {
