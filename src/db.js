@@ -1,54 +1,22 @@
-const db = {};
+import Dexie from 'dexie';
 
-// data structure
-// {
-//     'schedules': [
-//         {
-//             'scheduleName': 'name',
-//             'dateCreated':'date',
-//             'scheduleItems': [
-//                 {
-//                     'imageSrc': 'url or ref',
-//                     'altText': 'description',
-//                     'imageLabel': 'label',
-//                     'complete': 'boolean'
-//                 },
-//             ]
-//         },
-//     ],
+export const db = new Dexie('myDatabase');
+db.version(1).stores({
+  scheduleItem: '++id, imageSrc, altText, imageLabel, complete',
+  schedule: '++id, name, dateCreated',
+});
+
+// class SchedulesCollection {
+//     get() {}
+//     save() {}
+//     delete() {}
 // }
 
-class Db {
-    
-    constructor() {
-        this._schedulesCollection = new SchedulesCollection();
-    }
-
-    schedules() {
-        return this._schedulesCollection;
-    }
-}
-
-class SchedulesCollection {
-    get() {}
-    save() {}
-    delete() {}
-}
-
-class Schedule {
-    // id, name, dateCreated, scheduleItems
-    constructor(name) {}
-    get id() {} // auto-generated
-    get dateCreated() {} // auto-populated on save
-    get scheduleItems() {} // array of ScheduleItem objects
-    resetSchedule() {}
-}
-
-class ScheduleItem {
-    // imageSrc: string
-    // altText: description
-    // imageLabel: label
-    // complete: boolean
-    constructor() {}
-    markComplete() {}
-}
+// class Schedule {
+//     // id, name, dateCreated, scheduleItems
+//     constructor(name) {}
+//     get id() {} // auto-generated
+//     get dateCreated() {} // auto-populated on save
+//     get scheduleItems() {} // array of ScheduleItem objects
+//     resetSchedule() {}
+// }
