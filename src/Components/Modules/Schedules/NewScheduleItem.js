@@ -27,6 +27,8 @@ export default function NewScheduleItem() {
     } else if (location.state.selectedImage) {
       setImage(location.state.selectedImage);
       setAltText(location.state.selectedImage.imageDescription);
+    } else {
+      alert('You must choose an image');
     }
     try {
       const id = await db.scheduleItems.add({
