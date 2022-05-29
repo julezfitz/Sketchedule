@@ -32,19 +32,23 @@ export default function ScheduleList() {
   if (!schedules) return null;
 
   const createNewSchedule = async () => {
-    console.log('create new schedule!');
-
     try {
       // Add the new schedule
       const id = await db.schedules.add({
         name: 'New Schedule',
         dateCreated: new Date(),
       });
-
-      console.log(id);
       navigate('/edit', { state: { scheduleID: id } });
     } catch (error) {
       console.log(`Failed to add: ${error}`);
+    }
+  };
+
+  const deleteSchedule = async (scheduleToDelete) => {
+    try {
+      await db.schedules.delete(scheduleToDelete);
+    } catch (error) {
+      console.log(`Failed to delete: ${error}`);
     }
   };
 
@@ -79,8 +83,9 @@ export default function ScheduleList() {
                 key={`${schedule.id} ${schedule.dateCreated}`}
               >
                 <ScheduleItem
-                  key={schedule.id}
+                  scheduleID={schedule.id}
                   name={schedule.name}
+                  deleteSchedule={deleteSchedule}
                 />
               </Grid>
             ))}
