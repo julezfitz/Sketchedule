@@ -7,7 +7,6 @@ import {
   Gesture, LibraryAdd, Search, AddPhotoAlternate, Edit,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Dexie from "dexie";
 import { db } from '../../../db';
 import CustomUploadComponent from '../CustomUploadComponent';
 import useDisplayImage from '../../../Hooks/useDisplayImage';
@@ -26,8 +25,8 @@ export default function NewScheduleItem() {
   const createScheduleItem = async () => {
     try {
       const id = await db.scheduleItems.add({
-        imageSrc,
-        imageLabel,
+        imageSrc: location.state.selectedImage.imageThumb,
+        imageLabel: location.state.selectedImage.imageDescription,
         complete,
       });
       setStatus(`Image successfully added. Got id ${id}`);
