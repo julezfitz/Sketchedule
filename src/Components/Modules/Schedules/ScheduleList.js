@@ -3,6 +3,7 @@ import { Box, Grid, Typography } from '@mui/material';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
+import { useLiveQuery } from 'dexie-react-hooks';
 import ScheduleItem from './ScheduleItem';
 import { db } from '../../../db';
 
@@ -24,6 +25,12 @@ const addIcon = {
 export default function ScheduleList() {
   const navigate = useNavigate();
 
+  const schedules = useLiveQuery(
+    () => db.schedules
+      .toArray(),
+  );
+  if (!schedules) return null;
+
   const createNewSchedule = async () => {
     console.log('create new schedule!');
 
@@ -40,7 +47,8 @@ export default function ScheduleList() {
       console.log(`Failed to add: ${error}`);
     }
   };
-  //   const [schedules, setSchedules] = useState([]);
+
+  console.log(schedules);
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh' }}>
@@ -64,60 +72,18 @@ export default function ScheduleList() {
           }}
         >
           <Grid container direction="row">
-            <Grid item xs={15}>
-              <ScheduleItem
-                key="20"
-                name="Trip to Grocery Store"
-              />
-            </Grid>
-            <Grid item xs={15}>
-              <ScheduleItem
-                key="21"
-                name="Saturday"
-              />
-            </Grid>
-            <Grid item xs={15}>
-              <ScheduleItem
-                key="22"
-                name="School Day"
-              />
-            </Grid>
-            <Grid item xs={15}>
-              <ScheduleItem
-                key="23"
-                name="Trip To The Grocery Store"
-              />
-            </Grid>
-            <Grid item xs={15}>
-              <ScheduleItem
-                key="24"
-                name="Visit to Grandpa's"
-              />
-            </Grid>
-            <Grid item xs={15}>
-              <ScheduleItem
-                key="25"
-                name="Visit to the Doctor"
-              />
-            </Grid>
-            <Grid item xs={15}>
-              <ScheduleItem
-                key="23"
-                name="Trip To The Grocery Store"
-              />
-            </Grid>
-            <Grid item xs={15}>
-              <ScheduleItem
-                key="24"
-                name="Visit to Grandpa's"
-              />
-            </Grid>
-            <Grid item xs={15}>
-              <ScheduleItem
-                key="25"
-                name="Visit to the Doctor"
-              />
-            </Grid>
+            {schedules.map((schedule) => (
+              <Grid
+                item
+                xs={15}
+                key={`${schedule.id} ${schedule.dateCreated}`}
+              >
+                <ScheduleItem
+                  key={schedule.id}
+                  name={schedule.name}
+                />
+              </Grid>
+            ))}
           </Grid>
           <Fab
             onClick={() => {
