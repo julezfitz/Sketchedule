@@ -86,7 +86,7 @@ export default function EditSchedule() {
             sx={{ paddingLeft: '20%' }}
             style={{ minHeight: '80%', justifyContent: 'center', display: 'flex' }}
             variant="outlined"
-            onClick={() => navigate('/new')}
+            onClick={() => navigate('/new', { state: { scheduleID } })}
           >
             <CardActionArea>
               <AddIcon
