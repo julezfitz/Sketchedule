@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Alert, Paper, Grid, IconButton, Box, ListItemText, Button, List, ListItem,
+  Paper, Grid, IconButton, Box, ListItemText, Button, List, ListItem,
   InputLabel, Input, Card, CardContent, FormControl,
 } from '@mui/material';
 import {
@@ -11,7 +11,8 @@ import { db } from '../../../db';
 import CustomUploadComponent from '../CustomUploadComponent';
 import useDisplayImage from '../../../Hooks/useDisplayImage';
 
-export default function NewScheduleItem() {
+export default function NewScheduleItem(props) {
+  const { scheduleID } = props;
   const navigate = useNavigate();
   const location = useLocation();
   const [imageSrc, setImage] = useState('');
@@ -36,6 +37,7 @@ export default function NewScheduleItem() {
         imageLabel,
         complete,
         altText,
+        scheduleID,
       });
       setStatus(`Image successfully added. Got id ${id}`);
     } catch (error) {
