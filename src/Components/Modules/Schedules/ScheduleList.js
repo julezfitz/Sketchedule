@@ -35,6 +35,7 @@ export default function ScheduleList() {
       });
 
       console.log(id);
+      navigate('/edit', { state: { scheduleID: id } });
     } catch (error) {
       console.log(`Failed to add: ${error}`);
     }
@@ -121,7 +122,6 @@ export default function ScheduleList() {
           <Fab
             onClick={() => {
               createNewSchedule();
-              navigate('/edit');
             }}
             color="secondary"
             style={addButtonStyle}

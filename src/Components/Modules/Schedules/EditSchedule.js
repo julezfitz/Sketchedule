@@ -8,7 +8,7 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import AddIcon from '@mui/icons-material/Add';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const titleStyle = {
   width: '70%',
@@ -18,6 +18,9 @@ const titleStyle = {
 
 export default function EditSchedule() {
   const todayDate = new Date(Date.now()).toLocaleDateString('en-ZA');
+  
+  const location = useLocation();
+  const { scheduleID } = location.state;
 
   const navigate = useNavigate();
   const inputRef = useRef(null);
