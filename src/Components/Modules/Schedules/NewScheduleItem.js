@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Paper, Grid, IconButton, Box, ListItemText, Button, List, ListItem,
+  Alert, Paper, Grid, IconButton, Box, ListItemText, Button, List, ListItem,
   InputLabel, Input, Card, CardContent, FormControl,
 } from '@mui/material';
 import {
@@ -28,7 +28,7 @@ export default function NewScheduleItem() {
       setImage(location.state.selectedImage);
       setAltText(location.state.selectedImage.imageDescription);
     } else {
-      alert('You must choose an image');
+      console.log('You must choose an image');
     }
     try {
       const id = await db.scheduleItems.add({
