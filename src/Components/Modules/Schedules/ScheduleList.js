@@ -127,7 +127,7 @@ export default function ScheduleList() {
             style={addButtonStyle}
             aria-label="add new schedule"
           >
-            <AddIcon style={addIcon} labelStyle={{ fontSize: '200%' }} />
+            <AddIcon style={addIcon} sx={{ fontSize: '200%' }} />
           </Fab>
         </Grid>
       </Grid>
