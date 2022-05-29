@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Edit, Delete, NoEncryption } from '@mui/icons-material';
+import { Edit, Delete } from '@mui/icons-material';
 import {
   IconButton, Card, CardActionArea, Box,
 } from '@mui/material';
@@ -23,23 +23,25 @@ export default function EditSchedule() {
 
   const location = useLocation();
   const { scheduleID } = location.state;
-  const [scheduleItems, setScheduleItems] = useState([]);
-
-  useEffect(() => {
-    const savedScheduleItems = useLiveQuery(
-      () => db.scheduleItems
-        .where('id')
-        .equals(scheduleID)
-        .toArray(),
-    );
-    if (!savedScheduleItems) return null;
-    return setScheduleItems(savedScheduleItems);
-  }, []);
 
   const navigate = useNavigate();
   const inputRef = useRef(null);
   const [title, setTitleValue] = useState(`New Schedule - ${todayDate}`);
   const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    if (!disabled) {
+      inputRef.current.focus();
+    }
+  }, [disabled]);
+
+  const scheduleItems = useLiveQuery(
+    () => db.scheduleItems
+      .where('scheduleID')
+      .equals(scheduleID)
+      .toArray(),
+  );
+  if (!scheduleItems) return null;
 
   const toggleEdit = () => {
     if (disabled) {
@@ -53,12 +55,6 @@ export default function EditSchedule() {
   const handleDeleteItem = () => {
     console.log('removed item');
   };
-
-  useEffect(() => {
-    if (!disabled) {
-      inputRef.current.focus();
-    }
-  }, [disabled]);
 
   console.log(scheduleItems);
 
