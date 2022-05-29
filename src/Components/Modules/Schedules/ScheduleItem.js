@@ -3,8 +3,11 @@ import {
   IconButton, Typography, Paper, Grid,
 } from '@mui/material';
 import { Edit, Delete } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
-export default function ScheduleItem({ name }) {
+export default function ScheduleItem({ name, scheduleID, deleteSchedule }) {
+  const navigate = useNavigate();
+
   return (
     <Paper variant="outlined" sx={{ p: 2, m: 1, flexGrow: 1 }} style={{ cursor: 'pointer' }}>
       <Grid container spacing={1}>
@@ -22,6 +25,7 @@ export default function ScheduleItem({ name }) {
               size="large"
               color="inherit"
               style={{ marginLeft: 2.5 }}
+              onClick={() => navigate('/edit', { state: { scheduleID } })}
             >
               <Edit />
             </IconButton>
@@ -30,6 +34,7 @@ export default function ScheduleItem({ name }) {
               size="large"
               color="inherit"
               style={{ marginLeft: 0 }}
+              onClick={() => deleteSchedule(scheduleID)}
             >
               <Delete />
             </IconButton>
