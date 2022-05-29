@@ -15,19 +15,25 @@ export default function NewScheduleItem() {
   const navigate = useNavigate();
   const location = useLocation();
   const [imageSrc, setImage] = useState('');
-  // const [altText, setAltText] = useState('');
+  const [altText, setAltText] = useState('My schedule item');
   const [imageLabel, setImageLabel] = useState('');
   const [status, setStatus] = useState('');
   const complete = 'false';
-
-  console.log(location.state);
+  const { uploadedImage, uploader } = useDisplayImage();
 
   const createScheduleItem = async () => {
+    if (uploadedImage) {
+      setImage(uploadedImage);
+    } else if (location.state.selectedImage) {
+      setImage(location.state.selectedImage);
+      setAltText(location.state.selectedImage.imageDescription);
+    }
     try {
       const id = await db.scheduleItems.add({
-        imageSrc: location.state.selectedImage.imageThumb,
-        imageLabel: location.state.selectedImage.imageDescription,
+        imageSrc,
+        imageLabel,
         complete,
+        altText,
       });
       setStatus(`Image successfully added. Got id ${id}`);
     } catch (error) {
@@ -36,8 +42,6 @@ export default function NewScheduleItem() {
   };
 
   console.log(status);
-
-  const { uploadedImage, uploader } = useDisplayImage();
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh', alignItems: 'center' }}>
