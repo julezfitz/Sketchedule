@@ -11,10 +11,10 @@ import { db } from '../../../db';
 import CustomUploadComponent from '../CustomUploadComponent';
 import useDisplayImage from '../../../Hooks/useDisplayImage';
 
-export default function NewScheduleItem(props) {
-  const { scheduleID } = props;
+export default function NewScheduleItem() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { scheduleID } = location.state;
   const [imageSrc, setImage] = useState('');
   const [altText, setAltText] = useState('My schedule item');
   const [imageLabel, setImageLabel] = useState('');
