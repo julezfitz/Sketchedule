@@ -7,15 +7,36 @@ import {
   Gesture, LibraryAdd, Search, AddPhotoAlternate, Edit,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
+import Dexie from "dexie";
+import { db } from '../../../db';
 import CustomUploadComponent from '../CustomUploadComponent';
 import useDisplayImage from '../../../Hooks/useDisplayImage';
 
 export default function NewScheduleItem() {
   const navigate = useNavigate();
   const location = useLocation();
-  const [image, setImage] = useState('');
+  const [imageSrc, setImage] = useState('');
+  // const [altText, setAltText] = useState('');
+  const [imageLabel, setImageLabel] = useState('');
+  const [status, setStatus] = useState('');
+  const complete = 'false';
 
   console.log(location.state);
+
+  const createScheduleItem = async () => {
+    try {
+      const id = await db.scheduleItems.add({
+        imageSrc,
+        imageLabel,
+        complete,
+      });
+      setStatus(`Image successfully added. Got id ${id}`);
+    } catch (error) {
+      setStatus(`Failed to add image: ${error}`);
+    }
+  };
+
+  console.log(status);
 
   const { uploadedImage, uploader } = useDisplayImage();
 
@@ -64,7 +85,11 @@ export default function NewScheduleItem() {
                   />
 
                 </InputLabel>
-                <Input id="my-input" aria-describedby="item-label-text" />
+                <Input
+                  id="my-label-text"
+                  aria-describedby="item-label-text"
+                  onChange={(e) => setImageLabel(e.target.value)}
+                />
               </FormControl>
             </Grid>
           </CardContent>
@@ -135,6 +160,7 @@ export default function NewScheduleItem() {
                   sx={{ fontFamily: 'Verdana' }}
                   color="success"
                   variant="contained"
+                  onClick={() => createScheduleItem()}
                 >
                   Save
                 </Button>
