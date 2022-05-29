@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Edit, Delete, NoEncryption } from '@mui/icons-material';
 import {
-  IconButton, Card, CardActionArea, Typography, Box,
+  IconButton, Card, CardActionArea, Box,
 } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import ImageList from '@mui/material/ImageList';
@@ -9,6 +9,8 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useLiveQuery } from 'dexie-react-hooks';
+import { db } from '../../../db';
 
 const titleStyle = {
   width: '70%',
@@ -18,9 +20,21 @@ const titleStyle = {
 
 export default function EditSchedule() {
   const todayDate = new Date(Date.now()).toLocaleDateString('en-ZA');
-  
+
   const location = useLocation();
   const { scheduleID } = location.state;
+  const [scheduleItems, setScheduleItems] = useState([]);
+
+  useEffect(() => {
+    const savedScheduleItems = useLiveQuery(
+      () => db.scheduleItems
+        .where('id')
+        .equals(scheduleID)
+        .toArray(),
+    );
+    if (!savedScheduleItems) return null;
+    return setScheduleItems(savedScheduleItems);
+  }, []);
 
   const navigate = useNavigate();
   const inputRef = useRef(null);
@@ -45,6 +59,8 @@ export default function EditSchedule() {
       inputRef.current.focus();
     }
   }, [disabled]);
+
+  console.log(scheduleItems);
 
   return (
     <Box>
