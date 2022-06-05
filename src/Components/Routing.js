@@ -21,10 +21,6 @@ export default function Routing() {
       path: '/edit',
     },
     {
-      headingTitle: 'New Sketchedule',
-      path: '/new',
-    },
-    {
       headingTitle: 'Search',
       path: '/search',
     },
