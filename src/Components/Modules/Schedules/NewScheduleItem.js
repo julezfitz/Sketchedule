@@ -182,7 +182,7 @@ export default function NewScheduleItem() {
                   sx={{ fontFamily: 'Verdana' }}
                   color="error"
                   variant="contained"
-                  onClick={() => navigate('/edit')}
+                  onClick={() => navigate('/edit', { state: { scheduleID } })}
                 >
                   Cancel
                 </Button>
