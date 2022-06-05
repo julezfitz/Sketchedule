@@ -52,8 +52,12 @@ export default function EditSchedule() {
     }
   };
 
-  const handleDeleteItem = () => {
-    console.log('removed item');
+  const handleDeleteItem = async (itemID) => {
+    try {
+      await db.scheduleItems.delete(itemID);
+    } catch (error) {
+      console.log(`Failed to delete: ${error}`);
+    }
   };
 
   console.log(scheduleItems);
@@ -118,7 +122,7 @@ export default function EditSchedule() {
             <IconButton
               size="medium"
               style={{ color: 'white', marginLeft: 130, position: 'absolute' }}
-              onClick={() => handleDeleteItem()}
+              onClick={() => handleDeleteItem(item.id)}
             >
               <Delete />
             </IconButton>
