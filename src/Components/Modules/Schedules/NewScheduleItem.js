@@ -16,18 +16,15 @@ export default function NewScheduleItem() {
   const location = useLocation();
   const scheduleID = location.state?.scheduleID;
   const [imageLabel, setImageLabel] = useState('');
-  const [status, setStatus] = useState('');
   const complete = 'false';
   const { uploadedImage, uploader } = useDisplayImage();
 
   const createScheduleItem = async () => {
     let imageSrc;
-    let altText;
+    let altText = 'Schedule Item';
 
     if (uploadedImage) {
-      console.log(uploadedImage);
       imageSrc = uploadedImage;
-      console.log('uploaded image');
     } else if (location.state?.selectedImage) {
       imageSrc = location.state?.selectedImage.imageThumb;
       altText = location.state.selectedImage.imageDescription;
@@ -49,8 +46,6 @@ export default function NewScheduleItem() {
       setStatus(`Failed to add image: ${error}`);
     }
   };
-
-  console.log(status);
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh', alignItems: 'center' }}>
@@ -147,7 +142,6 @@ export default function NewScheduleItem() {
                     <CustomUploadComponent
                       component={ListItem}
                       onFileUpload={(e) => {
-                        setImage(e.target.files[0]);
                         uploader(e);
                       }}
                     >
