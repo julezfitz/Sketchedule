@@ -29,8 +29,6 @@ export default function NewScheduleItem() {
       imageSrc = uploadedImage;
       console.log('uploaded image');
     } else if (location.state?.selectedImage) {
-      console.log('in here with selected image from search');
-      console.log(location.state.selectedImage);
       imageSrc = location.state?.selectedImage.imageThumb;
       altText = location.state.selectedImage.imageDescription;
     } else {
@@ -53,7 +51,6 @@ export default function NewScheduleItem() {
   };
 
   console.log(status);
-  console.log(location.state?.selectedImage);
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh', alignItems: 'center' }}>

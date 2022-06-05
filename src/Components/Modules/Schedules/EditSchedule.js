@@ -57,7 +57,6 @@ export default function EditSchedule() {
   };
 
   console.log(scheduleItems);
-  console.log(scheduleID);
 
   return (
     <Box>
@@ -109,11 +108,11 @@ export default function EditSchedule() {
           </Card>
         </ImageListItem>
 
-        {/* {scheduleItems.map((item) => (
+        {scheduleItems.map((item) => (
           <ImageListItem key={item.id + 50}>
             <img
               alt={item.altText}
-              src={item.imgSrc}
+              src={item.imageSrc}
               loading="lazy"
             />
             <IconButton
@@ -129,7 +128,7 @@ export default function EditSchedule() {
               position="below"
             />
           </ImageListItem>
-        ))} */}
+        ))}
         <ImageListItem key="11">
           <img
             alt="Clothing"
