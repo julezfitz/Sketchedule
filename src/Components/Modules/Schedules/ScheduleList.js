@@ -25,6 +25,8 @@ const addIcon = {
 export default function ScheduleList() {
   const navigate = useNavigate();
 
+  const todayDate = new Date(Date.now()).toLocaleDateString('en-ZA');
+
   const schedules = useLiveQuery(
     () => db.schedules
       .toArray(),
@@ -35,10 +37,10 @@ export default function ScheduleList() {
     try {
       // Add the new schedule
       const id = await db.schedules.add({
-        name: 'New Schedule',
+        name: `New Schedule - ${todayDate}`,
         dateCreated: new Date(),
       });
-      navigate('/edit', { state: { scheduleID: id } });
+      navigate('/edit', { state: { scheduleID: id, scheduleName: `New Schedule - ${todayDate}` } });
     } catch (error) {
       console.log(`Failed to add: ${error}`);
     }
