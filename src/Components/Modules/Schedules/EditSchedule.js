@@ -19,14 +19,12 @@ const titleStyle = {
 };
 
 export default function EditSchedule() {
-  const todayDate = new Date(Date.now()).toLocaleDateString('en-ZA');
-
   const location = useLocation();
   const scheduleID = location.state?.scheduleID;
 
   const navigate = useNavigate();
   const inputRef = useRef(null);
-  const [title, setTitleValue] = useState(`New Schedule - ${todayDate}`);
+  const [title, setTitleValue] = useState(location.state?.scheduleName);
   const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
