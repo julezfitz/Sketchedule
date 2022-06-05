@@ -14,7 +14,7 @@ import useDisplayImage from '../../../Hooks/useDisplayImage';
 export default function NewScheduleItem() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { scheduleID } = location.state;
+  const scheduleID = location.state?.scheduleID;
   const [imageSrc, setImage] = useState('');
   const [altText, setAltText] = useState('My schedule item');
   const [imageLabel, setImageLabel] = useState('');
@@ -24,6 +24,7 @@ export default function NewScheduleItem() {
 
   const createScheduleItem = async () => {
     if (uploadedImage) {
+      console.log(uploadedImage);
       setImage(uploadedImage);
     } else if (location.state.selectedImage) {
       setImage(location.state.selectedImage);
@@ -40,6 +41,7 @@ export default function NewScheduleItem() {
         scheduleID,
       });
       setStatus(`Image successfully added. Got id ${id}`);
+      navigate('/edit', { state: { scheduleID } });
     } catch (error) {
       setStatus(`Failed to add image: ${error}`);
     }

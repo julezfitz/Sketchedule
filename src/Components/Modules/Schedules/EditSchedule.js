@@ -11,6 +11,7 @@ import AddIcon from '@mui/icons-material/Add';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../../db';
+import ScheduleList from './ScheduleList';
 
 const titleStyle = {
   width: '70%',
@@ -22,7 +23,7 @@ export default function EditSchedule() {
   const todayDate = new Date(Date.now()).toLocaleDateString('en-ZA');
 
   const location = useLocation();
-  const { scheduleID } = location.state;
+  const scheduleID = location.state?.scheduleID;
 
   const navigate = useNavigate();
   const inputRef = useRef(null);
@@ -57,6 +58,7 @@ export default function EditSchedule() {
   };
 
   console.log(scheduleItems);
+  console.log(scheduleID);
 
   return (
     <Box>
@@ -108,6 +110,27 @@ export default function EditSchedule() {
           </Card>
         </ImageListItem>
 
+        {/* {scheduleItems.map((item) => (
+          <ImageListItem key={item.id + 50}>
+            <img
+              alt={item.altText}
+              src={item.imgSrc}
+              loading="lazy"
+            />
+            <IconButton
+              size="medium"
+              style={{ color: 'white', marginLeft: 130, position: 'absolute' }}
+              onClick={() => handleDeleteItem()}
+            >
+              <Delete />
+            </IconButton>
+
+            <ImageListItemBar
+              title={item.imageLabel}
+              position="below"
+            />
+          </ImageListItem>
+        ))} */}
         <ImageListItem key="11">
           <img
             alt="Clothing"
