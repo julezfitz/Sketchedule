@@ -9,7 +9,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@material-ui/core/styles';
 import Modal from '@mui/material/Modal';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 // style search box
 const SearchBox = styled(TextField)(() => ({
@@ -36,10 +36,12 @@ const style = {
 };
 
 export default function ImageSearch() {
+  const location = useLocation();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedImage, setSelectedImage] = useState({});
   const [searchResults, setSearchResults] = useState([]);
   const [open, setOpen] = useState(false);
+  const scheduleID = location.state?.scheduleID;
   const navigate = useNavigate();
 
   const unsplash = createApi({
@@ -81,6 +83,7 @@ export default function ImageSearch() {
     navigate('/new', {
       state: {
         selectedImage,
+        scheduleID,
       },
     });
   };

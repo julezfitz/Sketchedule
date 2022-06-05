@@ -11,7 +11,6 @@ import AddIcon from '@mui/icons-material/Add';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../../db';
-import ScheduleList from './ScheduleList';
 
 const titleStyle = {
   width: '70%',
