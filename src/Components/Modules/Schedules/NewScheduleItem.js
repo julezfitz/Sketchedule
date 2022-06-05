@@ -48,6 +48,7 @@ export default function NewScheduleItem() {
   };
 
   console.log(status);
+  console.log(scheduleID);
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh', alignItems: 'center' }}>
@@ -134,7 +135,7 @@ export default function NewScheduleItem() {
                     <ListItem
                       divider
                       sx={{ marginBottom: 1 }}
-                      onClick={() => navigate('/search')}
+                      onClick={() => navigate('/search', { state: { scheduleID } })}
                     >
                       <ListItemText primary="Search Images" />
                       <IconButton edge="end">
