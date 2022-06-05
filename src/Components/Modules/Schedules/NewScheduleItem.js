@@ -15,22 +15,27 @@ export default function NewScheduleItem() {
   const navigate = useNavigate();
   const location = useLocation();
   const scheduleID = location.state?.scheduleID;
-  const [imageSrc, setImage] = useState('');
-  const [altText, setAltText] = useState('My schedule item');
   const [imageLabel, setImageLabel] = useState('');
   const [status, setStatus] = useState('');
   const complete = 'false';
   const { uploadedImage, uploader } = useDisplayImage();
 
   const createScheduleItem = async () => {
+    let imageSrc;
+    let altText;
+
     if (uploadedImage) {
       console.log(uploadedImage);
-      setImage(uploadedImage);
-    } else if (location.state.selectedImage) {
-      setImage(location.state.selectedImage);
-      setAltText(location.state.selectedImage.imageDescription);
+      imageSrc = uploadedImage;
+      console.log('uploaded image');
+    } else if (location.state?.selectedImage) {
+      console.log('in here with selected image from search');
+      console.log(location.state.selectedImage);
+      imageSrc = location.state?.selectedImage.imageThumb;
+      altText = location.state.selectedImage.imageDescription;
     } else {
       console.log('You must choose an image');
+      return;
     }
     try {
       const id = await db.scheduleItems.add({
@@ -48,7 +53,7 @@ export default function NewScheduleItem() {
   };
 
   console.log(status);
-  console.log(scheduleID);
+  console.log(location.state?.selectedImage);
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh', alignItems: 'center' }}>
