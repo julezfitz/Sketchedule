@@ -43,12 +43,21 @@ export default function EditSchedule() {
   );
   if (!scheduleItems) return null;
 
+  const handleTitleChange = async (titleScheduleID) => {
+    try {
+      await db.schedules.update(titleScheduleID, { name: title });
+    } catch (error) {
+      console.log(`Failed to update title: ${error}`);
+    }
+  };
+
   const toggleEdit = () => {
     if (disabled) {
       setDisabled(false);
       inputRef.current.focus();
     } else {
       setDisabled(true);
+      handleTitleChange(scheduleID);
     }
   };
 
