@@ -1,7 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Edit, Delete } from '@mui/icons-material';
 import {
-  IconButton, Typography, Card, CardActionArea, Checkbox, Box,
+  Edit, Delete, CenterFocusStrong, KeyboardDoubleArrowDown,
+} from '@mui/icons-material';
+import {
+  IconButton, Typography, Card, CardActionArea, Checkbox, Box, Grid,
 } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import ImageList from '@mui/material/ImageList';
@@ -14,6 +16,7 @@ import { db } from '../../../db';
 
 const titleStyle = {
   width: '70%',
+  margin: 'auto',
   border: 'none',
   marginBottom: '5%',
   fontSize: 25,
@@ -26,7 +29,7 @@ export default function useSchedule() {
   const navigate = useNavigate();
   const inputRef = useRef(null);
   const title = location.state?.scheduleName;
-//   const [complete, setComplete] = useState(true);
+  //   const [complete, setComplete] = useState(true);
 
   const scheduleItems = useLiveQuery(
     () => db.scheduleItems
@@ -56,7 +59,7 @@ export default function useSchedule() {
   console.log(scheduleItems);
 
   return (
-    <Box>
+    <Box sx={{ width: 200, margin: 'auto', overflowY: 'scroll' }}>
       <Typography
         id="title-display-field"
         sx={titleStyle}
@@ -73,35 +76,39 @@ export default function useSchedule() {
             minHeight: '20%',
           },
         }}
-        cols={2}
-        rowHeight={150}
+        cols={1}
+        rowHeight={200}
+        width={100}
         gap={8}
       >
         {scheduleItems.map((item) => (
-          <ImageListItem key={item.id + 50}>
-            <img
-              alt={item.altText}
-              src={item.imageSrc}
-              loading="lazy"
-            />
-            <ImageListItemBar
-              title={item.imageLabel}
-              actionIcon={(
-                <Checkbox
-                  size="medium"
-                  checked={item.complete}
-                  onChange={(event) => handleItemCompleteChange(event, item.id)}
-                  sx={{
-                    color: 'rgba(255, 255, 255, 0.54)',
-                    '&.Mui-checked': {
+          <Box container cols={1} key={item.id + 50} display="flex" alignItems="center">
+            <ImageListItem>
+              <img
+                alt={item.altText}
+                src={item.imageSrc}
+                loading="lazy"
+              />
+              <ImageListItemBar
+                title={item.imageLabel}
+                actionIcon={(
+                  <Checkbox
+                    size="medium"
+                    checked={item.complete}
+                    onChange={(event) => handleItemCompleteChange(event, item.id)}
+                    sx={{
                       color: 'rgba(255, 255, 255, 0.54)',
-                    },
-                  }}
-                  aria-label="mark as complete"
-                />
-              )}
-            />
-          </ImageListItem>
+                      '&.Mui-checked': {
+                        color: 'rgba(255, 255, 255, 0.54)',
+                      },
+                    }}
+                    aria-label="mark as complete"
+                  />
+                    )}
+              />
+            </ImageListItem>
+            <KeyboardDoubleArrowDown />
+          </Box>
         ))}
       </ImageList>
     </Box>
