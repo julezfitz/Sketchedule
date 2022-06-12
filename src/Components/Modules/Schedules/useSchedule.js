@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Edit, Delete } from '@mui/icons-material';
 import {
-  IconButton, Card, CardActionArea, Box,
+  IconButton, Typography, Card, CardActionArea, Checkbox, Box,
 } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import ImageList from '@mui/material/ImageList';
@@ -16,6 +16,7 @@ const titleStyle = {
   width: '70%',
   border: 'none',
   marginBottom: '5%',
+  fontSize: 25,
 };
 
 export default function useSchedule() {
@@ -25,8 +26,7 @@ export default function useSchedule() {
   const navigate = useNavigate();
   const inputRef = useRef(null);
   const title = location.state?.scheduleName;
-  const [complete, setComplete] = useState(true);
-
+//   const [complete, setComplete] = useState(true);
 
   const scheduleItems = useLiveQuery(
     () => db.scheduleItems
@@ -36,19 +36,20 @@ export default function useSchedule() {
   );
   if (!scheduleItems) return null;
 
-  const handleItemCompleteChange = async (scheduleItemId) => {
+  const handleItemCompleteChange = async (event, scheduleItemId) => {
+    const complete = event.target.checked;
     try {
-      await db.scheduleItems.update(scheduleItemId, { complete: complete });
+      await db.scheduleItems.update(scheduleItemId, { complete });
     } catch (error) {
-      console.log(`Failed to update title: ${error}`);
+      console.log(`Failed to update completion status: ${error}`);
     }
   };
 
   const toggleVerticalView = () => {
     if (disabled) {
-        setComplete(false);
+      setComplete(false);
     } else {
-        setComplete(true);
+      setComplete(true);
     }
   };
 
@@ -56,15 +57,13 @@ export default function useSchedule() {
 
   return (
     <Box>
-      <TextField
+      <Typography
         id="title-display-field"
         sx={titleStyle}
-        ref={inputRef}
-        value={title}
-        inputRef={inputRef}
         variant="standard"
-        InputProps={{ style: { fontSize: 22 } }}
-      />
+      >
+        {title}
+      </Typography>
       <ImageList
         sx={{
           img: {
@@ -85,17 +84,22 @@ export default function useSchedule() {
               src={item.imageSrc}
               loading="lazy"
             />
-            <IconButton
-              size="medium"
-              style={{ color: 'white', marginLeft: 130, position: 'absolute' }}
-            //   onClick={() => handleDeleteItem(item.id)}
-            >
-              <Delete />
-            </IconButton>
-
             <ImageListItemBar
               title={item.imageLabel}
-              position="below"
+              actionIcon={(
+                <Checkbox
+                  size="medium"
+                  checked={item.complete}
+                  onChange={(event) => handleItemCompleteChange(event, item.id)}
+                  sx={{
+                    color: 'rgba(255, 255, 255, 0.54)',
+                    '&.Mui-checked': {
+                      color: 'rgba(255, 255, 255, 0.54)',
+                    },
+                  }}
+                  aria-label="mark as complete"
+                />
+              )}
             />
           </ImageListItem>
         ))}
