@@ -5,6 +5,7 @@ import Heading from './Heading/Heading';
 import ScheduleList from './Modules/Schedules/ScheduleList';
 import EditSchedule from './Modules/Schedules/EditSchedule';
 import ImageSearch from './Modules/Schedules/ImageSearch';
+import UseSchedule from './Modules/Schedules/UseSchedule';
 import NewScheduleItem from './Modules/Schedules/NewScheduleItem';
 
 export default function Routing() {
@@ -70,6 +71,12 @@ export default function Routing() {
           path="/search"
           element={
             <ImageSearch />
+                    }
+        />
+        <Route
+          path="/view"
+          element={
+            <UseSchedule />
                     }
         />
       </Routes>

@@ -78,21 +78,6 @@ export default function useSchedule() {
         rowHeight={150}
         gap={8}
       >
-        <ImageListItem key="10">
-          <Card
-            sx={{ paddingLeft: '20%' }}
-            style={{ minHeight: '80%', justifyContent: 'center', display: 'flex' }}
-            variant="outlined"
-            onClick={() => navigate('/new', { state: { scheduleID } })}
-          >
-            <CardActionArea>
-              <AddIcon
-                sx={{ fontSize: 100, color: 'gray', justifyContent: 'center' }}
-              />
-            </CardActionArea>
-          </Card>
-        </ImageListItem>
-
         {scheduleItems.map((item) => (
           <ImageListItem key={item.id + 50}>
             <img
