@@ -3,19 +3,17 @@ import {
   Edit, Delete, CenterFocusStrong, KeyboardDoubleArrowDown,
 } from '@mui/icons-material';
 import {
-  IconButton, Typography, Card, CardActionArea, Checkbox, Box, Grid,
+  IconButton, Typography, Card, Stack, CardActionArea, Checkbox, Box, Grid,
 } from '@mui/material';
-import TextField from '@mui/material/TextField';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-import AddIcon from '@mui/icons-material/Add';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../../db';
 
 const titleStyle = {
-  width: '70%',
+  width: '100%',
   margin: 'auto',
   border: 'none',
   marginBottom: '5%',
@@ -48,18 +46,10 @@ export default function useSchedule() {
     }
   };
 
-  const toggleVerticalView = () => {
-    if (disabled) {
-      setComplete(false);
-    } else {
-      setComplete(true);
-    }
-  };
-
   console.log(scheduleItems);
 
   return (
-    <Box sx={{ width: 200, margin: 'auto', overflowY: 'scroll' }}>
+    <Stack display="flex" sx={{ width: 200, margin: 'auto', overflowY: 'scroll' }}>
       <Typography
         id="title-display-field"
         sx={titleStyle}
@@ -82,7 +72,7 @@ export default function useSchedule() {
         gap={8}
       >
         {scheduleItems.map((item) => (
-          <Box container cols={1} key={item.id + 50} display="flex" alignItems="center">
+          <Stack key={item.id + 50} display="flex" alignItems="center" justify="center">
             <ImageListItem>
               <img
                 alt={item.altText}
@@ -94,7 +84,7 @@ export default function useSchedule() {
                 actionIcon={(
                   <Checkbox
                     size="medium"
-                    checked={item.complete}
+                    checked={item.complete === 'true'}
                     onChange={(event) => handleItemCompleteChange(event, item.id)}
                     sx={{
                       color: 'rgba(255, 255, 255, 0.54)',
@@ -107,10 +97,11 @@ export default function useSchedule() {
                     )}
               />
             </ImageListItem>
-            <KeyboardDoubleArrowDown />
-          </Box>
+            {item !== scheduleItems[scheduleItems.length - 1]
+            && (<KeyboardDoubleArrowDown sx={{ marginTop: 1 }} />)}
+          </Stack>
         ))}
       </ImageList>
-    </Box>
+    </Stack>
   );
 }

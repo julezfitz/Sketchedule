@@ -16,6 +16,7 @@ export default function NewScheduleItem() {
   const location = useLocation();
   const scheduleID = location.state?.scheduleID;
   const [imageLabel, setImageLabel] = useState('');
+  const [status, setStatus] = useState('');
   const complete = 'false';
   const { uploadedImage, uploader } = useDisplayImage();
 
