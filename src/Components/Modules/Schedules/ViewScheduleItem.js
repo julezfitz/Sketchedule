@@ -25,7 +25,7 @@ export default function ViewScheduleItem(props) {
           actionIcon={(
             <Checkbox
               size="medium"
-              checked={complete === 'true'}
+              checked={complete}
               onChange={(event) => {
                 handleItemCompleteChange(event, item.id);
                 setComplete(event.target.checked);
