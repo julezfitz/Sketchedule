@@ -24,9 +24,6 @@ const titleStyle = {
 export default function useSchedule() {
   const location = useLocation();
   const scheduleID = location.state?.scheduleID;
-
-  const navigate = useNavigate();
-  const inputRef = useRef(null);
   const title = location.state?.scheduleName;
   //   const [complete, setComplete] = useState(true);
 

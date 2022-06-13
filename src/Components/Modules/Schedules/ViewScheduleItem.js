@@ -10,7 +10,11 @@ export default function ViewScheduleItem(props) {
 
   return (
     <Stack key={item.id + 50} display="flex" alignItems="center" justify="center">
-      <ImageListItem>
+      <ImageListItem
+        sx={{
+          opacity: complete ? '0.4' : '',
+        }}
+      >
         <img
           alt={item.altText}
           src={item.imageSrc}
