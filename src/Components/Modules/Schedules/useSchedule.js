@@ -11,6 +11,7 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../../db';
+import ViewScheduleItem from './ViewScheduleItem';
 
 const titleStyle = {
   width: '100%',
@@ -29,14 +30,6 @@ export default function useSchedule() {
   const title = location.state?.scheduleName;
   //   const [complete, setComplete] = useState(true);
 
-  const scheduleItems = useLiveQuery(
-    () => db.scheduleItems
-      .where('scheduleID')
-      .equals(scheduleID)
-      .toArray(),
-  );
-  if (!scheduleItems) return null;
-
   const handleItemCompleteChange = async (event, scheduleItemId) => {
     const complete = event.target.checked;
     try {
@@ -45,6 +38,14 @@ export default function useSchedule() {
       console.log(`Failed to update completion status: ${error}`);
     }
   };
+
+  const scheduleItems = useLiveQuery(
+    () => db.scheduleItems
+      .where('scheduleID')
+      .equals(scheduleID)
+      .toArray(),
+  );
+  if (!scheduleItems) return null;
 
   console.log(scheduleItems);
 
@@ -72,34 +73,12 @@ export default function useSchedule() {
         gap={8}
       >
         {scheduleItems.map((item) => (
-          <Stack key={item.id + 50} display="flex" alignItems="center" justify="center">
-            <ImageListItem>
-              <img
-                alt={item.altText}
-                src={item.imageSrc}
-                loading="lazy"
-              />
-              <ImageListItemBar
-                title={item.imageLabel}
-                actionIcon={(
-                  <Checkbox
-                    size="medium"
-                    checked={item.complete === 'true'}
-                    onChange={(event) => handleItemCompleteChange(event, item.id)}
-                    sx={{
-                      color: 'rgba(255, 255, 255, 0.54)',
-                      '&.Mui-checked': {
-                        color: 'rgba(255, 255, 255, 0.54)',
-                      },
-                    }}
-                    aria-label="mark as complete"
-                  />
-                    )}
-              />
-            </ImageListItem>
-            {item !== scheduleItems[scheduleItems.length - 1]
-            && (<KeyboardDoubleArrowDown sx={{ marginTop: 1 }} />)}
-          </Stack>
+          <ViewScheduleItem
+            key={item.id + 50}
+            handleItemCompleteChange={handleItemCompleteChange}
+            item={item}
+            scheduleItems={scheduleItems}
+          />
         ))}
       </ImageList>
     </Stack>
