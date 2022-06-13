@@ -1,14 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
-import {
-  Edit, Delete, CenterFocusStrong, KeyboardDoubleArrowDown,
-} from '@mui/icons-material';
-import {
-  IconButton, Typography, Card, Stack, CardActionArea, Checkbox, Box, Grid,
-} from '@mui/material';
+import { Typography, Stack } from '@mui/material';
 import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../../db';
 import ViewScheduleItem from './ViewScheduleItem';
@@ -25,7 +18,6 @@ export default function useSchedule() {
   const location = useLocation();
   const scheduleID = location.state?.scheduleID;
   const title = location.state?.scheduleName;
-  //   const [complete, setComplete] = useState(true);
 
   const handleItemCompleteChange = async (event, scheduleItemId) => {
     const complete = event.target.checked;

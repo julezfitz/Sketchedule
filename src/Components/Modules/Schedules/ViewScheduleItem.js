@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { KeyboardDoubleArrowDown } from '@mui/icons-material';
 import { Stack, Checkbox } from '@mui/material';
 import ImageListItem from '@mui/material/ImageListItem';
