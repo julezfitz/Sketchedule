@@ -23,8 +23,9 @@ export default function useSchedule() {
   const scheduleID = location.state?.scheduleID;
   const title = location.state?.scheduleName;
 
-  const handleItemCompleteChange = async (event, scheduleItemId) => {
-    const complete = event.target.checked;
+  const handleItemCompleteChange = async (completeStatus, scheduleItemId) => {
+    console.log('called', completeStatus);
+    const complete = completeStatus;
     try {
       await db.scheduleItems.update(scheduleItemId, { complete });
     } catch (error) {
