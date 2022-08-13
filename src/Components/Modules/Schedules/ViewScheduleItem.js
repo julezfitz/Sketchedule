@@ -8,12 +8,20 @@ export default function ViewScheduleItem(props) {
   const { item, scheduleItems, handleItemCompleteChange } = props;
   const [complete, setComplete] = useState(item.complete);
 
+  const handleCompleteStatusChange = () => {
+    handleItemCompleteChange(complete === false, item.id);
+    setComplete(complete === false);
+  };
+
+  console.log(complete);
+
   return (
     <Stack key={item.id + 50} display="flex" alignItems="center" justify="center">
       <ImageListItem
         sx={{
           opacity: complete ? '0.4' : '',
         }}
+        onClick={() => handleCompleteStatusChange()}
       >
         <img
           alt={item.altText}
@@ -26,10 +34,6 @@ export default function ViewScheduleItem(props) {
             <Checkbox
               size="medium"
               checked={complete}
-              onChange={(event) => {
-                handleItemCompleteChange(event, item.id);
-                setComplete(event.target.checked);
-              }}
               sx={{
                 color: 'rgba(255, 255, 255, 0.54)',
                 '&.Mui-checked': {
