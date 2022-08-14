@@ -2,10 +2,10 @@ import React from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
-import { useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import ScheduleItem from './ScheduleItem';
 import { db } from '../../../db';
+import useCreateNewSchedule from '../../../Hooks/useCreateNewSchedule';
 
 const addButtonStyle = {
   margin: 0,
@@ -23,28 +23,13 @@ const addIcon = {
 };
 
 export default function ScheduleList() {
-  const navigate = useNavigate();
-
-  const todayDate = new Date(Date.now()).toLocaleDateString('en-ZA');
+  const { createNew } = useCreateNewSchedule();
 
   const schedules = useLiveQuery(
     () => db.schedules
       .toArray(),
   );
   if (!schedules) return null;
-
-  const createNewSchedule = async () => {
-    try {
-      // Add the new schedule
-      const id = await db.schedules.add({
-        name: `New Schedule - ${todayDate}`,
-        dateCreated: new Date(),
-      });
-      navigate('/edit', { state: { scheduleID: id, scheduleName: `New Schedule - ${todayDate}` } });
-    } catch (error) {
-      console.log(`Failed to add: ${error}`);
-    }
-  };
 
   const deleteSchedule = async (scheduleToDelete) => {
     try {
@@ -94,7 +79,7 @@ export default function ScheduleList() {
           </Grid>
           <Fab
             onClick={() => {
-              createNewSchedule();
+              createNew();
             }}
             color="secondary"
             style={addButtonStyle}
