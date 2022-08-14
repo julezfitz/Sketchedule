@@ -81,7 +81,7 @@ export default function useSchedule() {
             key={item.id + 50}
             handleItemCompleteChange={handleItemCompleteChange}
             item={item}
-            scheduleItems={scheduleItems}
+            lastItem={scheduleItems.indexOf(item) === scheduleItems.length - 1}
           />
         ))}
       </ImageList>
