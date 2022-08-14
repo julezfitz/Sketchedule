@@ -119,7 +119,7 @@ export default function EditSchedule() {
           </Card>
         </ImageListItem>
 
-        {scheduleItems.map((item) => (
+        {scheduleItems?.map((item) => (
           <ImageListItem key={item.id + 50}>
             <img
               alt={item.altText}
