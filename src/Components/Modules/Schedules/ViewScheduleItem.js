@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { KeyboardDoubleArrowDown } from '@mui/icons-material';
 import { Stack, Checkbox } from '@mui/material';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 export default function ViewScheduleItem(props) {
-  const { item, scheduleItems, handleItemCompleteChange } = props;
+  const { item, lastItem, handleItemCompleteChange } = props;
 
-  console.log(item.complete);
+  console.log(lastItem);
 
   return (
     <Stack key={item.id + 50} display="flex" alignItems="center" justify="center">
@@ -39,8 +39,7 @@ export default function ViewScheduleItem(props) {
                     )}
         />
       </ImageListItem>
-      {item !== scheduleItems[scheduleItems.length - 1]
-            && (<KeyboardDoubleArrowDown sx={{ marginTop: 1 }} />)}
+      {!lastItem && (<KeyboardDoubleArrowDown sx={{ marginTop: 1 }} />)}
     </Stack>
   );
 }
