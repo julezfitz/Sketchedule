@@ -27,7 +27,7 @@ export default function ViewScheduleItem(props) {
           actionIcon={(
             <Checkbox
               size="medium"
-              checked={item.complete}
+              checked={!!item.complete}
               sx={{
                 color: 'rgba(255, 255, 255, 0.54)',
                 '&.Mui-checked': {
