@@ -36,26 +36,42 @@ function UserMenu({
     >
       {settings.map((setting) => (
         <MenuItem
-          onClick={handleCloseUserMenu}
-          key={setting.path}
+          onClick={() => {
+            handleCloseUserMenu();
+            if (setting.clickEvent) { setting.clickEvent(); }
+          }}
+          key={`${setting.headingTitle} + ${setting.path}`}
           sx={{
             padding: 0,
             '& p': { textAlign: 'left' },
             transition: '300ms ease',
           }}
         >
-          <Link
-            to={setting.path}
-            className="menuLink"
-            style={MENULINKSTYLES}
-          >
-            <Typography
-              textAlign="center"
-              color="black"
-            >
-              {setting.headingTitle}
-            </Typography>
-          </Link>
+          {setting.path
+            ? (
+              <Link
+                to={setting.path}
+                className="menuLink"
+                style={MENULINKSTYLES}
+              >
+                <Typography
+                  textAlign="center"
+                  color="black"
+                >
+                  {setting.headingTitle}
+                </Typography>
+              </Link>
+            )
+            : (
+              <Typography
+                textAlign="center"
+                color="black"
+                className="menuLink"
+                style={MENULINKSTYLES}
+              >
+                {setting.headingTitle}
+              </Typography>
+            )}
         </MenuItem>
       ))}
     </Menu>
