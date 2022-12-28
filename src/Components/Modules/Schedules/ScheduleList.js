@@ -4,7 +4,7 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import { useLiveQuery } from 'dexie-react-hooks';
 import ScheduleItem from './ScheduleItem';
-import { db } from '../../../db';
+import db from '../../../db';
 import useCreateNewSchedule from '../../../Hooks/useCreateNewSchedule';
 
 const addButtonStyle = {

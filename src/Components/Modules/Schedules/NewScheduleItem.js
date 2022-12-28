@@ -7,7 +7,7 @@ import {
   LibraryAdd, Search, AddPhotoAlternate, Edit,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { db } from '../../../db';
+import db from '../../../db';
 import CustomUploadComponent from '../CustomUploadComponent';
 import useDisplayImage from '../../../Hooks/useDisplayImage';
 
