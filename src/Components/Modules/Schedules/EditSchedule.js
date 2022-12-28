@@ -17,6 +17,7 @@ const titleStyle = {
   width: '70%',
   border: 'none',
   marginBottom: '5%',
+  marginLeft: '0.3rem',
 };
 
 export default function EditSchedule() {
@@ -70,7 +71,7 @@ export default function EditSchedule() {
 
   return (
     <Box>
-      <Box>
+      <Box sx={{display: 'inline'}}>
         <TextField
           id="title-display-field"
           sx={titleStyle}
@@ -80,20 +81,20 @@ export default function EditSchedule() {
           disabled={disabled}
           onChange={(e) => setTitleValue(e.target.value)}
           variant="standard"
-          InputProps={{ style: { fontSize: 22 } }}
+          InputProps={{ sx: { fontSize: 22 } }}
           onBlur={() => { toggleEdit(); }}
         />
         <IconButton
           size="large"
           color="inherit"
-          sx={{ marginLeft: 2.5, paddingBottom: 1 }}
+          sx={{ paddingTop: 0 }}
           onClick={() => { toggleEdit(); }}
         >
           <Edit />
         </IconButton>
         <IconButton
           color="success"
-          sx={{ marginLeft: 2.5 }}
+          sx={{ paddingTop: 0 }}
           onClick={() => { navigate('/view', { state: { ...location.state } }); }}
         >
           <PlayCircleFilledRounded sx={{ fontSize: '2rem' }} />
