@@ -41,11 +41,10 @@ export default function ImageSearch() {
   const [selectedImage, setSelectedImage] = useState({});
   const [searchResults, setSearchResults] = useState([]);
   const [open, setOpen] = useState(false);
-  const scheduleID = location.state?.scheduleID;
   const navigate = useNavigate();
 
   const unsplash = createApi({
-    accessKey: 'd24RfJCmlQx9cvBRGcGNvhn0PpPAlvyxRe0tNGzYRhU',
+    accessKey: process.env.REACT_APP_UNSPLASH_ACCESS_KEY,
     // secret: process.env.UNSPLASH_SECRET,
   });
 
@@ -82,8 +81,8 @@ export default function ImageSearch() {
   const handleImageSelection = () => {
     navigate('/new', {
       state: {
+        ...location.state,
         selectedImage,
-        scheduleID,
       },
     });
   };
@@ -103,15 +102,12 @@ export default function ImageSearch() {
           endAdornment: (
             <IconButton
               aria-label="search"
-              style={{
-                opacity: 1.0, transform: 'translate(14px)', width: '55px', height: '55px',
-              }}
               sx={{
-                backgroundColor: 'gray', backgroundOpacity: '100%', color: 'white', fontSize: '190%',
+                opacity: 1.0, transform: 'translate(14px)', width: '55px', height: '55px', backgroundColor: 'gray', backgroundOpacity: '100%', color: 'white', fontSize: '190%',
               }}
               onClick={() => handleSearch()}
             >
-              <SearchIcon style={{ width: '100%', height: '100%' }} />
+              <SearchIcon sx={{ width: '100%', height: '100%' }} />
             </IconButton>
           ),
         }}

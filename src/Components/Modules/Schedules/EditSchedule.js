@@ -1,13 +1,14 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Edit, Delete } from '@mui/icons-material';
 import {
-  IconButton, Card, CardActionArea, Box,
+  Edit, Delete, Add, PlayCircleFilledRounded,
+} from '@mui/icons-material';
+import {
+  IconButton, Card, CardActionArea, Box, Typography,
 } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-import AddIcon from '@mui/icons-material/Add';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../../db';
@@ -16,6 +17,7 @@ const titleStyle = {
   width: '70%',
   border: 'none',
   marginBottom: '5%',
+  marginLeft: '0.3rem',
 };
 
 export default function EditSchedule() {
@@ -67,32 +69,40 @@ export default function EditSchedule() {
     }
   };
 
-  console.log(scheduleItems);
-
   return (
     <Box>
-      <TextField
-        id="title-display-field"
-        sx={titleStyle}
-        ref={inputRef}
-        value={title}
-        inputRef={inputRef}
-        disabled={disabled}
-        onChange={(e) => setTitleValue(e.target.value)}
-        variant="standard"
-        InputProps={{ style: { fontSize: 22 } }}
-        onBlur={() => { toggleEdit(); }}
-      />
-      <IconButton
-        size="large"
-        color="inherit"
-        style={{ marginLeft: 2.5, paddingBottom: 1 }}
-        onClick={() => { toggleEdit(); }}
-      >
-        <Edit />
-      </IconButton>
+      <Box sx={{ display: 'inline' }}>
+        <TextField
+          id="title-display-field"
+          sx={titleStyle}
+          ref={inputRef}
+          value={title}
+          inputRef={inputRef}
+          disabled={disabled}
+          onChange={(e) => setTitleValue(e.target.value)}
+          variant="standard"
+          InputProps={{ sx: { fontSize: 22 } }}
+          onBlur={() => { toggleEdit(); }}
+        />
+        <IconButton
+          size="large"
+          color="inherit"
+          sx={{ paddingTop: 0 }}
+          onClick={() => { toggleEdit(); }}
+        >
+          <Edit />
+        </IconButton>
+        <IconButton
+          color="success"
+          sx={{ paddingTop: 0 }}
+          onClick={() => { navigate('/view', { state: { ...location.state } }); }}
+        >
+          <PlayCircleFilledRounded sx={{ fontSize: '2rem' }} />
+        </IconButton>
+      </Box>
       <ImageList
         sx={{
+          maxWidth: '100%',
           img: {
             minHeight: '80%',
           },
@@ -106,36 +116,46 @@ export default function EditSchedule() {
       >
         <ImageListItem key="10">
           <Card
-            sx={{ paddingLeft: '20%' }}
-            style={{ minHeight: '80%', justifyContent: 'center', display: 'flex' }}
+            sx={{
+              minHeight: '80%', justifyContent: 'center', display: 'flex', paddingLeft: '20%',
+            }}
             variant="outlined"
-            onClick={() => navigate('/new', { state: { scheduleID } })}
+            onClick={() => navigate('/new', { state: { ...location.state } })}
           >
             <CardActionArea>
-              <AddIcon
+              <Add
                 sx={{ fontSize: 100, color: 'gray', justifyContent: 'center' }}
               />
             </CardActionArea>
           </Card>
         </ImageListItem>
 
-        {scheduleItems.map((item) => (
+        {scheduleItems?.map((item) => (
           <ImageListItem key={item.id + 50}>
             <img
               alt={item.altText}
               src={item.imageSrc}
               loading="lazy"
             />
-            <IconButton
-              size="medium"
-              style={{ color: 'white', marginLeft: 130, position: 'absolute' }}
-              onClick={() => handleDeleteItem(item.id)}
-            >
-              <Delete />
-            </IconButton>
-
             <ImageListItemBar
-              title={item.imageLabel}
+              title={(
+                <Box sx={{ maxWidth: '8.5rem', textOverflow: 'ellipsis', overflow: 'hidden' }}>
+                  <Typography sx={{ overflow: 'hidden', display: 'inline' }}>
+                    {item.imageLabel}
+                    {' '}
+                    Hello this is really long now
+                  </Typography>
+                  <IconButton
+                    size="medium"
+                    sx={{
+                      display: 'inline', color: 'black', marginTop: '-0.6rem', right: 0, position: 'absolute',
+                    }}
+                    onClick={() => handleDeleteItem(item.id)}
+                  >
+                    <Delete />
+                  </IconButton>
+                </Box>
+            )}
               position="below"
             />
           </ImageListItem>

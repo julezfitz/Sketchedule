@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {
   Paper, Grid, IconButton, Box, ListItemText, Button, List, ListItem,
-  InputLabel, Input, Card, CardContent, FormControl,
+  InputLabel, Input, Card, CardContent, FormControl, Typography,
 } from '@mui/material';
 import {
-  Gesture, LibraryAdd, Search, AddPhotoAlternate, Edit,
+  LibraryAdd, Search, AddPhotoAlternate, Edit,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { db } from '../../../db';
@@ -30,7 +30,7 @@ export default function NewScheduleItem() {
       imageSrc = location.state?.selectedImage.imageThumb;
       altText = location.state.selectedImage.imageDescription;
     } else {
-      console.log('You must choose an image');
+      setStatus('You must choose an image');
       return;
     }
     try {
@@ -42,7 +42,7 @@ export default function NewScheduleItem() {
         scheduleID,
       });
       setStatus(`Image successfully added. Got id ${id}`);
-      navigate('/edit', { state: { scheduleID } });
+      navigate('/edit', { state: { ...location.state } });
     } catch (error) {
       setStatus(`Failed to add image: ${error}`);
     }
@@ -58,13 +58,12 @@ export default function NewScheduleItem() {
         justifyContent="center"
       >
         <Card
-          sx={{ width: '15em' }}
-          style={{ minHeight: '30vh' }}
+          sx={{ width: '15em', minHeight: '30vh' }}
           variant="outlined"
           direction="column"
         >
           <CardContent
-            style={{ justifyContent: 'center', display: 'flex' }}
+            sx={{ justifyContent: 'center', display: 'flex' }}
             direction="column"
           >
             <Grid
@@ -112,7 +111,7 @@ export default function NewScheduleItem() {
         >
           <Grid item xs={16}>
             <Paper
-              style={{ width: '15em', maxHeight: 450, overflow: 'auto' }}
+              sx={{ width: '15em', maxHeight: 450, overflow: 'auto' }}
             >
 
               <Grid container direction="row">
@@ -124,16 +123,7 @@ export default function NewScheduleItem() {
                     <ListItem
                       divider
                       sx={{ marginBottom: 1 }}
-                    >
-                      <ListItemText primary="SketchIt" />
-                      <IconButton edge="end">
-                        <Gesture />
-                      </IconButton>
-                    </ListItem>
-                    <ListItem
-                      divider
-                      sx={{ marginBottom: 1 }}
-                      onClick={() => navigate('/search', { state: { scheduleID } })}
+                      onClick={() => navigate('/search', { state: { ...location.state } })}
                     >
                       <ListItemText primary="Search Images" />
                       <IconButton edge="end">
@@ -180,7 +170,7 @@ export default function NewScheduleItem() {
                   sx={{ fontFamily: 'Verdana' }}
                   color="error"
                   variant="contained"
-                  onClick={() => navigate('/edit', { state: { scheduleID } })}
+                  onClick={() => navigate('/edit', { state: { ...location.state } })}
                 >
                   Cancel
                 </Button>
@@ -188,6 +178,9 @@ export default function NewScheduleItem() {
             </Grid>
           </Grid>
         </Grid>
+        <Box id="error-messages" sx={{ marginTop: '1rem' }}>
+          <Typography color="error">{status}</Typography>
+        </Box>
       </Grid>
     </Box>
   );
