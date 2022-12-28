@@ -5,7 +5,7 @@ import Heading from './Heading/Heading';
 import ScheduleList from './Modules/Schedules/ScheduleList';
 import EditSchedule from './Modules/Schedules/EditSchedule';
 import ImageSearch from './Modules/Schedules/ImageSearch';
-import UseSchedule from './Modules/Schedules/UseSchedule';
+import ViewSchedule from './Modules/Schedules/ViewSchedule';
 import NewScheduleItem from './Modules/Schedules/NewScheduleItem';
 import useCreateNewSchedule from '../Hooks/useCreateNewSchedule';
 
@@ -42,31 +42,31 @@ export default function Routing() {
           path="/edit"
           element={
             <EditSchedule />
-                    }
+          }
         />
         <Route
           path="/new"
           element={
             <NewScheduleItem />
-                    }
+          }
         />
         <Route
           path="/"
           element={
             <ScheduleList />
-                    }
+          }
         />
         <Route
           path="/search"
           element={
             <ImageSearch />
-                    }
+          }
         />
         <Route
           path="/view"
           element={
-            <UseSchedule />
-                    }
+            <ViewSchedule />
+          }
         />
       </Routes>
     </>
