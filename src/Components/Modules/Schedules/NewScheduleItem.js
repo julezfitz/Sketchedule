@@ -58,13 +58,12 @@ export default function NewScheduleItem() {
         justifyContent="center"
       >
         <Card
-          sx={{ width: '15em' }}
-          style={{ minHeight: '30vh' }}
+          sx={{ width: '15em', minHeight: '30vh' }}
           variant="outlined"
           direction="column"
         >
           <CardContent
-            style={{ justifyContent: 'center', display: 'flex' }}
+            sx={{ justifyContent: 'center', display: 'flex' }}
             direction="column"
           >
             <Grid
@@ -112,7 +111,7 @@ export default function NewScheduleItem() {
         >
           <Grid item xs={16}>
             <Paper
-              style={{ width: '15em', maxHeight: 450, overflow: 'auto' }}
+              sx={{ width: '15em', maxHeight: 450, overflow: 'auto' }}
             >
 
               <Grid container direction="row">

@@ -86,14 +86,14 @@ export default function EditSchedule() {
         <IconButton
           size="large"
           color="inherit"
-          style={{ marginLeft: 2.5, paddingBottom: 1 }}
+          sx={{ marginLeft: 2.5, paddingBottom: 1 }}
           onClick={() => { toggleEdit(); }}
         >
           <Edit />
         </IconButton>
         <IconButton
           color="success"
-          style={{ marginLeft: 2.5 }}
+          sx={{ marginLeft: 2.5 }}
           onClick={() => { navigate('/view', { state: { ...location.state } }); }}
         >
           <PlayCircleFilledRounded sx={{ fontSize: '2rem' }} />
@@ -115,8 +115,9 @@ export default function EditSchedule() {
       >
         <ImageListItem key="10">
           <Card
-            sx={{ paddingLeft: '20%' }}
-            style={{ minHeight: '80%', justifyContent: 'center', display: 'flex' }}
+            sx={{
+              minHeight: '80%', justifyContent: 'center', display: 'flex', paddingLeft: '20%',
+            }}
             variant="outlined"
             onClick={() => navigate('/new', { state: { ...location.state } })}
           >

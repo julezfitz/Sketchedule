@@ -39,7 +39,7 @@ export default function ScheduleItem({ name, scheduleID, deleteSchedule }) {
             <IconButton
               size="large"
               color="inherit"
-              style={{ marginLeft: 2.5 }}
+              sx={{ marginLeft: 2.5 }}
               onClick={() => navigate('/edit', { state: { scheduleID, scheduleName: name } })}
             >
               <Edit />
@@ -48,7 +48,7 @@ export default function ScheduleItem({ name, scheduleID, deleteSchedule }) {
             <IconButton
               size="large"
               color="inherit"
-              style={{ marginLeft: 0 }}
+              sx={{ marginLeft: 0 }}
               onClick={() => setDeleteInProgress(true)}
             >
               <Delete />

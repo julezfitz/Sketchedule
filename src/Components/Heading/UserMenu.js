@@ -67,7 +67,7 @@ function UserMenu({
                 textAlign="center"
                 color="black"
                 className="menuLink"
-                style={MENULINKSTYLES}
+                sx={MENULINKSTYLES}
               >
                 {setting.headingTitle}
               </Typography>
