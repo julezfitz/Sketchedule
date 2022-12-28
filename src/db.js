@@ -1,6 +1,8 @@
 import Dexie from 'dexie';
 
-export const db = new Dexie('sketcheduleDatabase');
+const db = new Dexie('sketcheduleDatabase');
+
+export default db;
 
 db.version(2).stores({
   scheduleItems: '++id, imageSrc, altText, imageLabel, complete, scheduleID',

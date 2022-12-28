@@ -6,7 +6,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 // import StyledHeading from './styles/styles';
 import UserMenu from './UserMenu';
 
-function Heading(props, ref) {
+function Heading(props) {
   const {
     settings,
   } = props;
