@@ -50,7 +50,6 @@ export default function useSchedule() {
       }
     });
   };
-  console.log(scheduleItems);
 
   return (
     <Stack display="flex" sx={{ width: 200, margin: 'auto', overflowY: 'scroll' }}>

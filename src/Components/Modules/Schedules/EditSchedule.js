@@ -27,8 +27,6 @@ export default function EditSchedule() {
   const [title, setTitleValue] = useState(location.state?.scheduleName);
   const [disabled, setDisabled] = useState(true);
 
-  console.log(location.state);
-  console.log(title)
   useEffect(() => {
     if (!disabled) {
       inputRef.current.focus();
@@ -68,8 +66,6 @@ export default function EditSchedule() {
       console.log(`Failed to delete: ${error}`);
     }
   };
-
-  console.log(scheduleItems);
 
   return (
     <Box>

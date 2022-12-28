@@ -15,8 +15,6 @@ export default function NewScheduleItem() {
   const navigate = useNavigate();
   const location = useLocation();
   const scheduleID = location.state?.scheduleID;
-  console.log('in edit:');
-  console.log(location.state);
   const [imageLabel, setImageLabel] = useState('');
   const [status, setStatus] = useState('');
   const complete = false;

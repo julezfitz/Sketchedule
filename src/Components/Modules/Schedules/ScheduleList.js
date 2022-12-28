@@ -39,11 +39,9 @@ export default function ScheduleList() {
     }
   };
 
-  console.log(schedules);
-
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh' }}>
-      <Typography marginLeft={1.5}>My Sketchedules</Typography>
+      <Typography marginLeft={1.5} fontSize="1.3rem">My Sketchedules</Typography>
       <Grid container spacing={2} columns={16}>
         <Grid
           item

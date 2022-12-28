@@ -7,8 +7,6 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 export default function ViewScheduleItem(props) {
   const { item, lastItem, handleItemCompleteChange } = props;
 
-  console.log(lastItem);
-
   return (
     <Stack key={item.id + 50} display="flex" alignItems="center" justify="center">
       <ImageListItem
