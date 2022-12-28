@@ -44,7 +44,7 @@ export default function ImageSearch() {
   const navigate = useNavigate();
 
   const unsplash = createApi({
-    accessKey: 'd24RfJCmlQx9cvBRGcGNvhn0PpPAlvyxRe0tNGzYRhU',
+    accessKey: process.env.REACT_APP_UNSPLASH_ACCESS_KEY,
     // secret: process.env.UNSPLASH_SECRET,
   });
 

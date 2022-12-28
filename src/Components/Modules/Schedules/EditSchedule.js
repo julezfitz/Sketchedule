@@ -71,7 +71,7 @@ export default function EditSchedule() {
 
   return (
     <Box>
-      <Box sx={{display: 'inline'}}>
+      <Box sx={{ display: 'inline' }}>
         <TextField
           id="title-display-field"
           sx={titleStyle}
