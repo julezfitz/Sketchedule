@@ -20,7 +20,7 @@ const titleStyle = {
   fontWeight: 600,
 };
 
-export default function useSchedule() {
+export default function ViewSchedule() {
   const location = useLocation();
   const [completeSchedule, setCompleteSchedule] = useState(false);
   const scheduleID = location.state?.scheduleID;
