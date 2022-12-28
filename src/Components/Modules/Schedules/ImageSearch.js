@@ -41,7 +41,6 @@ export default function ImageSearch() {
   const [selectedImage, setSelectedImage] = useState({});
   const [searchResults, setSearchResults] = useState([]);
   const [open, setOpen] = useState(false);
-  const scheduleID = location.state?.scheduleID;
   const navigate = useNavigate();
 
   const unsplash = createApi({

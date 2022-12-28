@@ -28,7 +28,6 @@ export default function useSchedule() {
   const navigate = useNavigate();
 
   const handleItemCompleteChange = async (completeStatus, scheduleItemId) => {
-    console.log('called', completeStatus);
     const complete = completeStatus;
     try {
       await db.scheduleItems.update(scheduleItemId, { complete });
@@ -60,8 +59,6 @@ export default function useSchedule() {
     unCheckAll();
     navigate('/');
   };
-
-  console.log(location.state);
 
   return (
     <>
