@@ -27,6 +27,8 @@ export default function EditSchedule() {
   const [title, setTitleValue] = useState(location.state?.scheduleName);
   const [disabled, setDisabled] = useState(true);
 
+  console.log(location.state);
+  console.log(title)
   useEffect(() => {
     if (!disabled) {
       inputRef.current.focus();
@@ -109,7 +111,7 @@ export default function EditSchedule() {
             sx={{ paddingLeft: '20%' }}
             style={{ minHeight: '80%', justifyContent: 'center', display: 'flex' }}
             variant="outlined"
-            onClick={() => navigate('/new', { state: { scheduleID } })}
+            onClick={() => navigate('/new', { state: { ...location.state } })}
           >
             <CardActionArea>
               <AddIcon

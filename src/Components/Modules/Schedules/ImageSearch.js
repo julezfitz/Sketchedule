@@ -82,8 +82,8 @@ export default function ImageSearch() {
   const handleImageSelection = () => {
     navigate('/new', {
       state: {
+        ...location.state,
         selectedImage,
-        scheduleID,
       },
     });
   };

@@ -15,6 +15,8 @@ export default function NewScheduleItem() {
   const navigate = useNavigate();
   const location = useLocation();
   const scheduleID = location.state?.scheduleID;
+  console.log('in edit:');
+  console.log(location.state);
   const [imageLabel, setImageLabel] = useState('');
   const [status, setStatus] = useState('');
   const complete = false;
@@ -42,7 +44,7 @@ export default function NewScheduleItem() {
         scheduleID,
       });
       setStatus(`Image successfully added. Got id ${id}`);
-      navigate('/edit', { state: { scheduleID } });
+      navigate('/edit', { state: { ...location.state } });
     } catch (error) {
       setStatus(`Failed to add image: ${error}`);
     }
@@ -133,7 +135,7 @@ export default function NewScheduleItem() {
                     <ListItem
                       divider
                       sx={{ marginBottom: 1 }}
-                      onClick={() => navigate('/search', { state: { scheduleID } })}
+                      onClick={() => navigate('/search', { state: { ...location.state } })}
                     >
                       <ListItemText primary="Search Images" />
                       <IconButton edge="end">
@@ -180,7 +182,7 @@ export default function NewScheduleItem() {
                   sx={{ fontFamily: 'Verdana' }}
                   color="error"
                   variant="contained"
-                  onClick={() => navigate('/edit', { state: { scheduleID } })}
+                  onClick={() => navigate('/edit', { state: { ...location.state } })}
                 >
                   Cancel
                 </Button>
