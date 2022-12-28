@@ -3,7 +3,7 @@ import {
   Edit, Delete, Add, PlayCircleFilledRounded,
 } from '@mui/icons-material';
 import {
-  IconButton, Card, CardActionArea, Box,
+  IconButton, Card, CardActionArea, Box, Typography,
 } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import ImageList from '@mui/material/ImageList';
@@ -101,6 +101,7 @@ export default function EditSchedule() {
       </Box>
       <ImageList
         sx={{
+          maxWidth: '100%',
           img: {
             minHeight: '80%',
           },
@@ -134,16 +135,25 @@ export default function EditSchedule() {
               src={item.imageSrc}
               loading="lazy"
             />
-            <IconButton
-              size="medium"
-              style={{ color: 'white', marginLeft: 130, position: 'absolute' }}
-              onClick={() => handleDeleteItem(item.id)}
-            >
-              <Delete />
-            </IconButton>
-
             <ImageListItemBar
-              title={item.imageLabel}
+              title={(
+                <Box sx={{ maxWidth: '8.5rem', textOverflow: 'ellipsis', overflow: 'hidden' }}>
+                  <Typography sx={{ overflow: 'hidden', display: 'inline' }}>
+                    {item.imageLabel}
+                    {' '}
+                    Hello this is really long now
+                  </Typography>
+                  <IconButton
+                    size="medium"
+                    sx={{
+                      display: 'inline', color: 'black', marginTop: '-0.6rem', right: 0, position: 'absolute',
+                    }}
+                    onClick={() => handleDeleteItem(item.id)}
+                  >
+                    <Delete />
+                  </IconButton>
+                </Box>
+            )}
               position="below"
             />
           </ImageListItem>

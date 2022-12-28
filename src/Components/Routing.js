@@ -15,11 +15,11 @@ export default function Routing() {
 
   const pageInfo = [
     {
-      headingTitle: 'My Sketchedules',
+      headingTitle: 'My Schedules',
       path: '/',
     },
     {
-      headingTitle: 'New Sketchedule',
+      headingTitle: 'New Schedule',
       clickEvent: createNew,
     },
   ];

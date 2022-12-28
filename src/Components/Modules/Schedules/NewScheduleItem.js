@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {
   Paper, Grid, IconButton, Box, ListItemText, Button, List, ListItem,
-  InputLabel, Input, Card, CardContent, FormControl,
+  InputLabel, Input, Card, CardContent, FormControl, Typography,
 } from '@mui/material';
 import {
-  Gesture, LibraryAdd, Search, AddPhotoAlternate, Edit,
+  LibraryAdd, Search, AddPhotoAlternate, Edit,
 } from '@mui/icons-material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { db } from '../../../db';
@@ -30,7 +30,7 @@ export default function NewScheduleItem() {
       imageSrc = location.state?.selectedImage.imageThumb;
       altText = location.state.selectedImage.imageDescription;
     } else {
-      console.log('You must choose an image');
+      setStatus('You must choose an image');
       return;
     }
     try {
@@ -124,15 +124,6 @@ export default function NewScheduleItem() {
                     <ListItem
                       divider
                       sx={{ marginBottom: 1 }}
-                    >
-                      <ListItemText primary="SketchIt" />
-                      <IconButton edge="end">
-                        <Gesture />
-                      </IconButton>
-                    </ListItem>
-                    <ListItem
-                      divider
-                      sx={{ marginBottom: 1 }}
                       onClick={() => navigate('/search', { state: { ...location.state } })}
                     >
                       <ListItemText primary="Search Images" />
@@ -188,6 +179,9 @@ export default function NewScheduleItem() {
             </Grid>
           </Grid>
         </Grid>
+        <Box id="error-messages" sx={{ marginTop: '1rem' }}>
+          <Typography color="error">{status}</Typography>
+        </Box>
       </Grid>
     </Box>
   );

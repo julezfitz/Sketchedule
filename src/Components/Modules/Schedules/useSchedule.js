@@ -61,6 +61,8 @@ export default function useSchedule() {
     navigate('/');
   };
 
+  console.log(location.state);
+
   return (
     <>
       {completeSchedule === false
@@ -74,49 +76,60 @@ export default function useSchedule() {
         >
           {title}
         </Typography>
-        <ImageList
-          sx={{
-            img: {
-              minHeight: '80%',
-            },
-            div: {
-              minHeight: '20%',
-            },
-          }}
-          cols={1}
-          rowHeight={200}
-          width={100}
-          gap={8}
-        >
-          {scheduleItems.map((item) => (
-            <ViewScheduleItem
-              key={item.id + 50}
-              handleItemCompleteChange={handleItemCompleteChange}
-              item={item}
-              lastItem={scheduleItems.indexOf(item) === scheduleItems.length - 1}
-            />
-          ))}
-        </ImageList>
-        <Button
-          aria-label="complete schedule"
-          variant="contained"
-          disabled={scheduleItems?.filter((item) => item.complete === false).length > 0}
-          color="success"
-          sx={{ fontSize: 'medium', marginBottom: '1rem' }}
-          onClick={() => setCompleteSchedule(true)}
-          startIcon={<CheckCircleOutline sx={{ fontColor: 'white' }} />}
-        >
-          Complete
-        </Button>
-        <Button
-          aria-label="reset checked items"
-          variant="contained"
-          sx={{ fontSize: 'medium', color: 'white', backgroundColor: 'purple' }}
-          onClick={() => unCheckAll()}
-          startIcon={<RestartAlt sx={{ fontColor: 'white' }} />}
-        >
-          Reset All
-        </Button>
+        {scheduleItems.length > 0
+          ? (
+            <>
+              <ImageList
+                sx={{
+                  img: {
+                    minHeight: '80%',
+                  },
+                  div: {
+                    minHeight: '20%',
+                  },
+                }}
+                cols={1}
+                rowHeight={200}
+                width={100}
+                gap={8}
+              >
+                {scheduleItems.map((item) => (
+                  <ViewScheduleItem
+                    key={item.id + 50}
+                    handleItemCompleteChange={handleItemCompleteChange}
+                    item={item}
+                    lastItem={scheduleItems.indexOf(item) === scheduleItems.length - 1}
+                  />
+                ))}
+              </ImageList>
+              <Button
+                aria-label="complete schedule"
+                variant="contained"
+                disabled={scheduleItems?.filter((item) => item.complete === false).length > 0}
+                color="success"
+                sx={{ fontSize: 'medium', marginBottom: '1rem' }}
+                onClick={() => setCompleteSchedule(true)}
+                startIcon={<CheckCircleOutline sx={{ fontColor: 'white' }} />}
+              >
+                Complete
+              </Button>
+              <Button
+                aria-label="reset checked items"
+                variant="contained"
+                sx={{ fontSize: 'medium', color: 'white', backgroundColor: 'purple' }}
+                onClick={() => unCheckAll()}
+                startIcon={<RestartAlt sx={{ fontColor: 'white' }} />}
+              >
+                Reset All
+              </Button>
+            </>
+          )
+          : (
+            <Box sx={{ textAlign: 'center', marginTop: '2rem' }}>
+              <Typography>You have no schedule items.</Typography>
+              <Button variant="contained" onClick={() => navigate('/edit', { state: { ...location.state } })} sx={{ marginTop: '1rem' }}>Edit Schedule</Button>
+            </Box>
+          )}
       </Stack>
       )}
       {completeSchedule === true

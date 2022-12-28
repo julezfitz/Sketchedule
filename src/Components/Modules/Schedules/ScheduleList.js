@@ -41,7 +41,7 @@ export default function ScheduleList() {
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: '60vh' }}>
-      <Typography marginLeft={1.5} fontSize="1.3rem">My Sketchedules</Typography>
+      <Typography marginLeft={1.5} fontSize="1.3rem">My Schedules</Typography>
       <Grid container spacing={2} columns={16}>
         <Grid
           item

@@ -24,7 +24,7 @@ function Heading(props, ref) {
   return (
     <Stack direction="row" spacing={2} marginTop="10%">
       <Typography variant="h3" color="purple" marginTop="5%" marginLeft="17%">
-        Sketchedule
+        VisuSchedule
       </Typography>
 
       <Box sx={{ maxWidth: '150px', marginLeft: '12%' }}>
