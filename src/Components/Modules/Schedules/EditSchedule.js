@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Edit, Delete } from '@mui/icons-material';
+import {
+  Edit, Delete, Add, PlayCircleFilledRounded,
+} from '@mui/icons-material';
 import {
   IconButton, Card, CardActionArea, Box,
 } from '@mui/material';
@@ -7,7 +9,6 @@ import TextField from '@mui/material/TextField';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
-import AddIcon from '@mui/icons-material/Add';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../../db';
@@ -69,26 +70,35 @@ export default function EditSchedule() {
 
   return (
     <Box>
-      <TextField
-        id="title-display-field"
-        sx={titleStyle}
-        ref={inputRef}
-        value={title}
-        inputRef={inputRef}
-        disabled={disabled}
-        onChange={(e) => setTitleValue(e.target.value)}
-        variant="standard"
-        InputProps={{ style: { fontSize: 22 } }}
-        onBlur={() => { toggleEdit(); }}
-      />
-      <IconButton
-        size="large"
-        color="inherit"
-        style={{ marginLeft: 2.5, paddingBottom: 1 }}
-        onClick={() => { toggleEdit(); }}
-      >
-        <Edit />
-      </IconButton>
+      <Box>
+        <TextField
+          id="title-display-field"
+          sx={titleStyle}
+          ref={inputRef}
+          value={title}
+          inputRef={inputRef}
+          disabled={disabled}
+          onChange={(e) => setTitleValue(e.target.value)}
+          variant="standard"
+          InputProps={{ style: { fontSize: 22 } }}
+          onBlur={() => { toggleEdit(); }}
+        />
+        <IconButton
+          size="large"
+          color="inherit"
+          style={{ marginLeft: 2.5, paddingBottom: 1 }}
+          onClick={() => { toggleEdit(); }}
+        >
+          <Edit />
+        </IconButton>
+        <IconButton
+          color="success"
+          style={{ marginLeft: 2.5 }}
+          onClick={() => { navigate('/view', { state: { ...location.state } }); }}
+        >
+          <PlayCircleFilledRounded sx={{ fontSize: '2rem' }} />
+        </IconButton>
+      </Box>
       <ImageList
         sx={{
           img: {
@@ -110,7 +120,7 @@ export default function EditSchedule() {
             onClick={() => navigate('/new', { state: { ...location.state } })}
           >
             <CardActionArea>
-              <AddIcon
+              <Add
                 sx={{ fontSize: 100, color: 'gray', justifyContent: 'center' }}
               />
             </CardActionArea>

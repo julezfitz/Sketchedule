@@ -26,7 +26,6 @@ export default function ScheduleItem({ name, scheduleID, deleteSchedule }) {
           <Grid item xs container direction="column" spacing={8}>
             <Grid item xs>
               <Typography
-                gutterBottom
                 variant="subtitle1"
                 component="div"
                 onClick={() => navigate('/view', { state: { scheduleID, scheduleName: name } })}
