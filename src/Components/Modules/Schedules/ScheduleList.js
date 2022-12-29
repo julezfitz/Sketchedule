@@ -74,6 +74,9 @@ export default function ScheduleList() {
                 />
               </Grid>
             ))}
+            {schedules.length < 1 && (
+              <Typography sx={{ marginTop: '1.5rem', marginLeft: '0.5rem' }}>You have no schedules. Click the + button to get started.</Typography>
+            )}
           </Grid>
           <Fab
             onClick={() => {
