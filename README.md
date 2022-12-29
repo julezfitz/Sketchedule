@@ -11,7 +11,7 @@ This project was created to fulfill the requirements of the CS50 curriculum, as 
 ## Getting Started
 
 ### Try It Live
-This app has been deployed. Head to https://venerable-dango-665208.netlify.app to try VisuSchedule yourself.
+This app has been deployed. Head to https://visuschedule.netlify.app to try VisuSchedule yourself.
 
 ### Run Locally
 
