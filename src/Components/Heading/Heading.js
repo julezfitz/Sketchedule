@@ -22,15 +22,15 @@ function Heading(props) {
   };
 
   return (
-    <Stack direction="row" spacing={2} marginTop="10%">
-      <Typography variant="h3" color="purple" marginTop="5%" marginLeft="17%">
+    <Stack direction="row" spacing={2} marginTop="10%" sx={{ textAlign: 'center' }}>
+      <Typography variant="h3" color="purple" marginTop="5%" paddingLeft="5%" sx={{ width: '90%' }}>
         VisuSchedule
       </Typography>
 
-      <Box sx={{ maxWidth: '150px', marginLeft: '12%' }}>
+      <Box sx={{ right: '5%', position: 'absolute' }}>
         <Tooltip title="Menu">
           <IconButton disableRipple onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-            <MenuIcon />
+            <MenuIcon sx={{ fontSize: '2rem', marginTop: '1rem' }} />
           </IconButton>
         </Tooltip>
         <UserMenu
