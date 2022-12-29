@@ -8,6 +8,16 @@ VisuSchedule allows users to choose either personal photographs uploaded from th
 
 This project was created to fulfill the requirements of the CS50 curriculum, as my final course project.
 
+## See The App In Action
+
+<img width="310" alt="Screenshot 2022-12-29 at 10 49 40 AM" src="https://user-images.githubusercontent.com/76081292/209966392-413cb0ed-28f1-4200-98d6-58f0b58bc5bc.png">
+
+<img width="310" alt="Screenshot 2022-12-29 at 10 48 13 AM" src="https://user-images.githubusercontent.com/76081292/209966394-84a0dc19-4399-4140-b287-f9e88b42c6cb.png">
+
+<img width="310" alt="Screenshot 2022-12-29 at 10 47 48 AM" src="https://user-images.githubusercontent.com/76081292/209966395-fb184536-43b5-4732-b6dd-8688d5db8630.png">
+
+<img width="310" alt="Screenshot 2022-12-29 at 10 43 20 AM" src="https://user-images.githubusercontent.com/76081292/209966396-d5bf629d-9787-4369-8e54-9bc850141659.png">
+
 ## Getting Started
 
 ### Try It Live
