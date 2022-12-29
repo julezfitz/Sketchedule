@@ -6,7 +6,7 @@ My inspiration comes from years of drawing on paper squares and affixing picture
 
 VisuSchedule allows users to choose either personal photographs uploaded from their phone, choose photos from a searchable free use database of photos to use, or a combination to create schedules. Labels are optional on schedule items, as not everyone needs these. VisuSchedule has both schedule edit and view modes, so once a schedule is ready, view mode switches to a linear scroll from start to finish, allowing items to be checked off as they go. Once all items are complete, clicking the complete button cheers the users on a resets all items status for use again another time.
 
-This project was created to fulfill the requirements of the CS50 curriculum, as my final course project.
+This project was built using React, Javascript, Dexie (local database) and Material UI, created to fulfill the requirements of the CS50 curriculum, as my final course project.
 
 ## See The App In Action
 
