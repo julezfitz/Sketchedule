@@ -8,7 +8,7 @@ import {
 import ImageList from '@mui/material/ImageList';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLiveQuery } from 'dexie-react-hooks';
-import { db } from '../../../db';
+import db from '../../../db';
 import ViewScheduleItem from './ViewScheduleItem';
 
 const titleStyle = {
