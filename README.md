@@ -10,6 +10,9 @@ This project was built using React, Javascript, Dexie (local database) and Mater
 
 ## See The App In Action
 
+### Video Recording
+[https://youtu.be/ifRWWEr0Lj8](https://www.youtube.com/watch?v=ifRWWEr0Lj8)
+
 ### Schedules View
 <img width="310" alt="Screenshot 2022-12-29 at 10 43 20 AM" src="https://user-images.githubusercontent.com/76081292/209966396-d5bf629d-9787-4369-8e54-9bc850141659.png">
 
