@@ -1,72 +1,21 @@
 # VisuSchedule
 
-# Getting Started with Create React App
+VisuSchedule is a phone web app geared towards creating and using personal visual schedules. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+My inspiration comes from years of drawing on paper squares and affixing pictures to a board to guide my children through the day, allowing them to see what is coming next to help ease transitions. It was time consuming and the schedule was not linear, which sometimes created confusion. Some days, like school or daycare days can be repetitive, so I found myself frequently re-creating the same schedules. The aim of VisuSchedule is to allow people to quickly create and use simple linear visual schedules. 
 
-## Available Scripts
+VisuSchedule allows users to choose either personal photographs uploaded from their phone, choose photos from a searchable free use database of photos to use, or a combination to create schedules. Labels are optional on schedule items, as not everyone needs these. VisuSchedule has both schedule edit and view modes, so once a schedule is ready, view mode switches to a linear scroll from start to finish, allowing items to be checked off as they go. Once all items are complete, clicking the complete button cheers the users on a resets all items status for use again another time.
 
-In the project directory, you can run:
+This project was created to fulfill the requirements of the CS50 curriculum, as my final course project.
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Try It Live
+This app has been deployed. Head to https://venerable-dango-665208.netlify.app to try VisuSchedule yourself.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Run Locally
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Fork this repository, then clone your fork of this repository.
+2. Install dependencies using the npm install command.
+3. Start the web server using the npm run local command, `npm start`. The app will be served at http://localhost:3000/.
+4. Go to http://localhost:3000/ in your browser.
