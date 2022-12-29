@@ -69,7 +69,6 @@ export default function EditSchedule() {
     }
   };
 
-  console.log(scheduleItems)
   return (
     <Box>
       <Box sx={{ display: 'inline' }}>
@@ -121,12 +120,7 @@ export default function EditSchedule() {
               minHeight: '80%', justifyContent: 'center', display: 'flex', paddingLeft: '20%',
             }}
             variant="outlined"
-            onClick={async () => {
-              if (title !== location.state?.scheduleName) {
-                await handleTitleChange(scheduleID);
-              }
-              navigate('/new', { state: { ...location.state } });
-            }}
+            onClick={() => navigate('/new', { state: { ...location.state, scheduleName: title } })}
           >
             <CardActionArea>
               <Add
