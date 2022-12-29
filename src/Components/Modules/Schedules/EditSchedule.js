@@ -69,6 +69,7 @@ export default function EditSchedule() {
     }
   };
 
+  console.log(scheduleItems)
   return (
     <Box>
       <Box sx={{ display: 'inline' }}>
@@ -120,7 +121,12 @@ export default function EditSchedule() {
               minHeight: '80%', justifyContent: 'center', display: 'flex', paddingLeft: '20%',
             }}
             variant="outlined"
-            onClick={() => navigate('/new', { state: { ...location.state } })}
+            onClick={async () => {
+              if (title !== location.state?.scheduleName) {
+                await handleTitleChange(scheduleID);
+              }
+              navigate('/new', { state: { ...location.state } });
+            }}
           >
             <CardActionArea>
               <Add
@@ -142,8 +148,6 @@ export default function EditSchedule() {
                 <Box sx={{ maxWidth: '8.5rem', textOverflow: 'ellipsis', overflow: 'hidden' }}>
                   <Typography sx={{ overflow: 'hidden', display: 'inline' }}>
                     {item.imageLabel}
-                    {' '}
-                    Hello this is really long now
                   </Typography>
                   <IconButton
                     size="medium"
